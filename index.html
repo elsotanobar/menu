@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<title>El Sótano - Menú</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+
+
+<style>
+body, html {height: 100%}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
+.menu {display: none}
+.bgimg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("logo.jpg");
+  min-height: 90%;
+  
+  
+
+</style>
+
+
+
+<body>
+
+<!-- Navbar (sit on top) -->
+
+
+<!--
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo right">Logo</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="#">INICIO</a></li>
+        <li><a href="#menu">MENÚ</a></li>
+        <li><a href="#about">ABOUT</a></li>
+		<li><a href="#myMap">CONTACTO</a></li>		
+      </ul>
+    </div>
+  </nav>-->
+  
+<!-- Header with image -->
+<header class="bgimg w3-center" id="home">
+<style>
+			.bgimg{
+				background-position: center;
+				background-image: url("logo.jpg");
+			}
+		</style>
+
+
+  <div class="w3-bar w3-xlarge w3-white w3-opacity w3-hover-opacity-off" id="myNavbar">
+    <a href="#" class="w3-bar-item w3-button">INICIO</a>
+    <a href="#menu" class="w3-bar-item w3-button">MENÚ</a>
+    <a href="#about" class="w3-bar-item w3-button">ACERCA</a>
+    <a href="#myMap" class="w3-bar-item w3-button">UBICACIÓN</a>
+  </div>
+
+
+  <div class="w3-display-bottomleft w3-padding">
+    <span class="w3-tag w3-xlarge">Abierto de 4pm a 12pm</span>
+  </div>
+  <div class="w3-display-middle w3-center">
+    <!--<span class="w3-text-white w3-hide-small" style="font-size:100px">El<br>Sótano</span>
+    <span class="w3-text-white w3-hide-large w3-hide-medium" style="font-size:60px"><b>thin<br>CRUST PIZZA</b></span>-->
+<!--    <p><a href="#menu" class="w3-button">Muestrame el menú</a></p>
+-->  </div>
+</header>
+
+
+
+
+
+
+<!-- Menu Container -->
+<div class="w3-container w3-black w3-padding-64 w3-xxlarge" id="menu">
+  <div class="w3-content">
+  
+    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">MENÚ</h1>
+	
+    <div class="w3-row w3-center w3-border w3-border-dark-grey">
+      
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Cerveza');" id="myLink">
+        <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Cerveza</div>
+      </a>
+      
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Bebidas');">
+        <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Bebidas</div>
+      </a>
+      
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Botellas');">
+        <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Botellas</div>
+      </a>
+	  
+	  <a href="javascript:void(0)" onclick="openMenu(event, 'Alimentos');">
+        <div class="w3-col s5 tablink w3-hover-red">Alimentos</div>
+      </a>
+	  <a href="javascript:void(0)" onclick="openMenu(event, 'Promociones');">
+        <div class="w3-col s5 tablink w3-hover-red">Promociones</div>
+      </a>
+
+    </div>
+
+    
+    
+    
+    <div id="Cerveza" class="w3-container menu w3-padding-32 w3-white ">
+	
+	
+
+<h1>
+<span class="w3-left w3-tag w3-teal w3-round-xxlarge"> INDIO </span>
+<span class="w3-left w3-tag w3-red w3-round-xxlarge"> TECATE </span>
+<span class="w3-right w3-tag w3-dark-grey w3-round">$28.00</span>
+<br><b>*AMPOLLETA</b>
+</h1>
+<hr>
+
+
+<h1><span class="w3-left w3-tag w3-teal w3-round-xxlarge"> INDIO </span><span class="w3-left w3-tag w3-red w3-round-xxlarge"> TECATE </span><span class="w3-right w3-tag w3-dark-grey w3-round">$145.00</span><br><b>*CUBETA (6 Piezas)</b></h1><hr>
+<h1><span class="w3-left w3-tag w3-teal w3-round-xxlarge"> INDIO </span><span class="w3-left w3-tag w3-red w3-round-xxlarge"> TECATE </span><span class="w3-right w3-tag w3-dark-grey w3-round">$80.00</span><br><b>*CAGUAMÓN</b></h1><hr>
+
+
+<h1><span class="w3-left w3-tag w3-brown w3-round-xxlarge">XX Ambar</span><span class="w3-left w3-tag w3-green w3-round-xxlarge">XX Lager</span><span class="w3-right w3-tag w3-dark-grey w3-round">$30.00</span><br><b>*AMPOLLETA</b></h1><hr>
+<h1><span class="w3-left w3-tag w3-brown w3-round-xxlarge">XX Ambar</span><span class="w3-left w3-tag w3-green w3-round-xxlarge">XX Lager</span><span class="w3-right w3-tag w3-dark-grey w3-round">$155.00</span><br><b>*CUBETA</b></h1><hr>
+<h1><span class="w3-left w3-tag w3-brown w3-round-xxlarge">XX Ambar</span><span class="w3-left w3-tag w3-green w3-round-xxlarge">XX Lager</span><span class="w3-right w3-tag w3-dark-grey w3-round">$85.00</span><br><b>*CAGUAMÓN</b></h1><hr>
+
+<h1><span class="w3-left w3-tag w3-black w3-round-xxlarge">Bohemia Oscura</span><span class="w3-left w3-tag w3-red w3-round-xxlarge">Bohemia Clara</span><span class="w3-right w3-tag w3-dark-grey w3-round">$33.00</span><br><b>*AMPOLLETA</b></h1><hr>
+<h1><span class="w3-left w3-tag w3-black w3-round-xxlarge">Bohemia Oscura</span><span class="w3-left w3-tag w3-red w3-round-xxlarge">Bohemia Clara</span><span class="w3-right w3-tag w3-dark-grey w3-round">$185.00</span><br><b>*CUBETA</b></h1><hr>
+
+<h1><span class="w3-left w3-tag w3-teal w3-round-xxlarge"> Heineken </span><span class="w3-right w3-tag w3-dark-grey w3-round">$38.00</span><br><b>*AMPOLLETA</b></h1><hr>
+<h1><span class="w3-left w3-tag w3-teal w3-round-xxlarge"> Heineken </span><span class="w3-right w3-tag w3-dark-grey w3-round">$295.00</span><br><b>*CUBETA</b></h1><hr>
+<h1><span class="w3-left w3-tag w3-teal w3-round-xxlarge"> Heineken </span><span class="w3-right w3-tag w3-dark-grey w3-round">$95.00</span><br><b>*CAGUAMA</b></h1><hr>
+
+<h1><span class="w3-left w3-tag w3-indigo w3-round-xxlarge"> Ultra </span><span class="w3-right w3-tag w3-dark-grey w3-round">$38.00</span><br><b>*AMPOLLETA</b></h1><hr>
+<h1><span class="w3-left w3-tag w3-indigo w3-round-xxlarge"> Ultra </span><span class="w3-right w3-tag w3-dark-grey w3-round">$295.00</span><br><b>*CUBETA</b></h1><hr>
+
+
+    </div>
+
+
+    <div id="Bebidas" class="w3-container menu w3-padding-32 w3-white">
+     
+     
+    </div>
+
+
+    <div id="Botellas" class="w3-container menu w3-padding-32 w3-white">
+        
+	</div><br>
+	
+	    <div id="Alimentos" class="w3-container menu w3-padding-32 w3-white">
+      
+    </div><br>
+	
+	    <div id="Promociones" class="w3-container menu w3-padding-32 w3-white">
+    
+    </div><br>
+
+  </div>
+</div>
+
+<!-- About Container -->
+<div class="w3-container w3-padding-64 w3-red w3-grayscale w3-xlarge" id="about">
+  <div class="w3-content">
+    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">Acerca de nosotros</h1>
+    <p>EL SÓTANO BAR...</p>
+    <p><strong>Somos</strong> EL SÓTANO<img src="logo.jpg" style="width:150px" class="w3-circle w3-right" alt="Chef"></p>
+    <p></p><p></p><p></p>
+    <img src="logo.jpg" style="width:100%" class="w3-margin-top w3-margin-bottom" alt="Restaurant">
+    <h1><b>Nuestros horarios</b></h1>
+    
+    <div class="w3-row">
+      <div class="w3-col s6">
+        <p>Lunes CERRADO</p>
+        <p>Martes 16.00pm - 24.00</p>
+        <p>Miercoles 16:00pm - 24:00</p>
+		<p>Jueves 16:00 - 24:00</p>
+      </div>
+      <div class="w3-col s6">
+        
+        <p>Viernes 16:00 - 1:00</p>
+        <p>Sabado 16:00 - 1:00</p>
+		<p>Domingo CERRADO</p>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<!-- Image of location/map -->
+<!-- Image of location/map -->
+
+<div class="w3-container w3-padding-64 w3-red w3-grayscale w3-xlarge w3-center" id="myMap">
+  <div class="w3-content">
+<h1><b>Nuestra ubicación</b></h1>
+        <p>Insurgentes Centro No.15</p>
+        <p>Colonia San Rafael</p>
+        <p>Ciudad de México</p>
+		<p>CP 06470</p>
+      </div>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.381054510514!2d-99.15839148514412!3d19.439131045509118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f8d1e5085e4d%3A0x34e26c4a6dd4de0b!2sEl%20S%C3%B3tano!5e0!3m2!1ses-419!2smx!4v1600465346591!5m2!1ses-419!2smx" 
+width="300" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+</div>
+
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-48 w3-xxlarge">
+  <p>Powered by <a href="https://www.facebook.com/ElSotano.BarSnack/" title="El Sotano" target="_blank" class="w3-hover-text-green">El Sotano</a></p>
+</footer>
+
+<script>
+// Tabbed Menu
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+     tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-red";
+}
+document.getElementById("myLink").click();
+</script>
+
+</body>
+</html>
