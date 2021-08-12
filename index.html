@@ -26,6 +26,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 
 <body>
 
+  <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v11.0" nonce="wuZZZgqD"></script>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v11.0" nonce="ZX1RnLB8"></script>
+
 <!-- Navbar (sit on top) -->
 
 
@@ -63,11 +68,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
   <div class="w3-display-bottomleft w3-padding">
     <span class="w3-tag w3-xlarge">Abierto de 4pm a 12am</span>
   </div>
-  <div class="w3-display-middle w3-center">
-    <!--<span class="w3-text-white w3-hide-small" style="font-size:100px">El<br>Sótano</span>
-    <span class="w3-text-white w3-hide-large w3-hide-medium" style="font-size:60px"><b>thin<br>CRUST PIZZA</b></span>-->
-<!--    <p><a href="#menu" class="w3-button">Muestrame el menú</a></p>
--->  </div>
+
+
 </header>
 
 
@@ -107,6 +109,29 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 
 
 
+
+    <div class="w3-container w3-black w3-padding-48 w3-xxlarge" id="redes">
+  <div class="w3-content">
+
+
+
+<table style="width: 100%;">
+   <tr>
+      <td style="width: 100%; background-color:black; border: 0px solid black; text-align: center" >
+         
+
+<div class="fb-page" data-href="https://www.facebook.com/ElSotano.BarSnack/" data-tabs="" data-width="330" data-height="" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/ElSotano.BarSnack/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/ElSotano.BarSnack/">El Sótano</a></blockquote></div>
+
+      </td>
+   </tr>
+</table>
+
+ </div> 
+</div>
+
+
+
+
     <div class="w3-container w3-black w3-padding-64 w3-xxlarge" id="menu">
   <div class="w3-content">
   
@@ -134,6 +159,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
       <a href="javascript:void(0)" onclick="openMenu(event, 'Promociones');">
         <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Promociones</div>
       </a> -->
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Promociones');">
+        <div class="w3-col tablink w3-padding-large w3-hover-red">Promociones</div>
+      </a> 
 
     </div>
 
@@ -263,9 +291,23 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
       
     </div><br>
   
-     <!--  <div id="Promociones" class="w3-container menu w3-padding-32 w3-white">
-    
-    </div><br> -->
+
+<!--PROMOCIONES-->
+
+
+    <div id="Promociones" class="w3-container menu w3-padding-32 w3-white">
+
+      <h1><span class="w3-bar w3-tag w3-red w3-round-xxlarge">PROMOCION 2 LITROS DE CERVEZA X $120.00</span></h1><hr>
+
+      <h2><span class="w3-left w3-tag w3-black w3-round-xxlarge">2 LITROS DE CERVEZA INDIO O TECATE</span><span class="w3-right w3-tag w3-dark-grey w3-round">$120.00</span><br></h2><h3><b></b></h3><hr>
+      <h2><span class="w3-left w3-tag w3-black w3-round-xxlarge">2 LITROS DE CERVEZA XX LAGER O AMBAR</span><span class="w3-right w3-tag w3-dark-grey w3-round">$130.00</span><br></h2><h3><b></b></h3><hr>
+
+
+    </div><br>
+
+
+
+
 
   </div>
 </div>
@@ -332,6 +374,7 @@ function openMenu(evt, menuName) {
 }
 document.getElementById("myLink").click();
 </script>
+
 
 </body>
 </html>
