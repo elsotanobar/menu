@@ -719,10 +719,8 @@
                 Información detallada sobre los horarios establecidos para el check-in y check-out en Casa Pando, así como opciones disponibles para mayor flexibilidad.
             </p>
         </section>
-        
 
-
-        <!-- Sección del video -->
+        <!-- Sección del video - MODIFICADA PARA USAR SISTEMA AUTOMÁTICO -->
         <section class="video-section fade-in">
             <h2 class="video-title">
                 <i class="fas fa-play-circle"></i>
@@ -733,9 +731,19 @@
             </p>
             
             <div class="video-container">
-                <a href="https://www.youtube.com/watch?v=EXAMPLE_VIDEO_ID" target="_blank" class="video-preview">
+                <!-- 
+                    CONFIGURACIÓN FÁCIL: 
+                    1. Cambia el data-video-id por el ID de tu video de YouTube
+                    2. El enlace y la miniatura se actualizarán automáticamente
+                    
+                    Ejemplos de IDs válidos:
+                    - dQw4w9WgXcQ (Rick Astley - Never Gonna Give You Up)
+                    - I8LaxKfccWU (ejemplo actual)
+                    - Tu_ID_De_YouTube_Aquí
+                -->
+                <div class="video-preview" data-video-url="https://www.youtube.com/watch?v=I8LaxKfccWU">
                     <div class="video-thumbnail">
-                        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Miniatura del video">
+                        <img src="" alt="Miniatura del video de YouTube" class="youtube-thumbnail">
                         <div class="video-play-button">
                             <i class="fas fa-play"></i>
                         </div>
@@ -744,11 +752,10 @@
                         <h3 id="video-heading">Guía completa de check-in en Casa Pando Acapulco</h3>
                         <p id="video-info-text">En este video te mostramos paso a paso cómo realizar el check-in en nuestra propiedad, incluyendo el uso del sistema de acceso digital, ubicación de las llaves y un recorrido por las áreas principales de la casa para que te familiarices rápidamente con el espacio.</p>
                     </div>
-                </a>
+                </div>
             </div>
         </section>
 
-        
         <!-- Sección de la respuesta -->
         <section class="answer-section fade-in">
             <h2 class="answer-title">
@@ -783,8 +790,6 @@
             </p>
             <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Check-in en casa de playa" class="featured-image">
         </section>
-        
-        
     </main>
 
     <!-- Pie de página -->
@@ -843,6 +848,64 @@
     </footer>
 
     <script>
+        // ===== FUNCIONALIDAD PARA VIDEOS DE YOUTUBE =====
+        
+        // Función para extraer el ID de YouTube de una URL
+        function getYouTubeId(url) {
+            if (!url) return null;
+            
+            // Patrones comunes de URLs de YouTube
+            const patterns = [
+                /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/,
+                /youtube\.com\/.*[?&]v=([a-zA-Z0-9_-]{11})/,
+                /youtu\.be\/([a-zA-Z0-9_-]{11})/
+            ];
+            
+            for (const pattern of patterns) {
+                const match = url.match(pattern);
+                if (match && match[1]) {
+                    return match[1];
+                }
+            }
+            return null;
+        }
+
+        // Función para configurar videos de YouTube automáticamente
+        function setupYouTubeVideos() {
+            const videoPreviews = document.querySelectorAll('.video-preview[data-video-url]');
+            
+            videoPreviews.forEach(preview => {
+                const videoUrl = preview.getAttribute('data-video-url');
+                const videoId = getYouTubeId(videoUrl);
+                
+                if (videoId) {
+                    // Convertir el div en un enlace
+                    preview.href = `https://www.youtube.com/watch?v=${videoId}`;
+                    preview.target = '_blank';
+                    preview.style.cursor = 'pointer';
+                    
+                    // Configurar miniatura
+                    const thumbnail = preview.querySelector('.youtube-thumbnail');
+                    if (thumbnail) {
+                        // Intentar con maxresdefault primero (calidad más alta)
+                        thumbnail.src = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+                        
+                        // Si maxresdefault falla, usar hqdefault
+                        thumbnail.onerror = function() {
+                            this.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+                            this.onerror = null; // Evitar bucles infinitos
+                        };
+                        
+                        thumbnail.alt = `Miniatura del video de YouTube`;
+                    }
+                } else {
+                    console.warn('URL de YouTube no válida:', videoUrl);
+                }
+            });
+        }
+
+        // ===== FUNCIONALIDAD EXISTENTE =====
+        
         // JavaScript para el menú móvil
         document.getElementById('mobile-menu').addEventListener('click', function() {
             document.getElementById('nav-links').classList.toggle('active');
@@ -892,6 +955,9 @@
                 element.style.opacity = '0';
                 observer.observe(element);
             });
+            
+            // Configurar videos de YouTube automáticamente
+            setupYouTubeVideos();
             
             // ===== FUNCIONALIDAD DEL SELECTOR DE IDIOMA =====
             const languageBtn = document.getElementById('language-btn');
