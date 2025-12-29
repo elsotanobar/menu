@@ -5,9 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casa Pando Acapulco - Preguntas Frecuentes</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Fuentes similares a Airbnb -->
+    <link href="https://fonts.googleapis.com/css2?family=Cereal:wght@400;500;600;700&family=Cereal-Book:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif&display=swap" rel="stylesheet">
     <style>
-        /* Estilos generales */
+        /* ===== ESTILOS GENERALES AL ESTILO AIRBNB ===== */
+        :root {
+            --airbnb-red: #FF385C;
+            --airbnb-dark: #222222;
+            --airbnb-gray: #717171;
+            --airbnb-light-gray: #DDDDDD;
+            --airbnb-bg: #FFFFFF;
+            --airbnb-border: #EBEBEB;
+            --airbnb-hover: #F7F7F7;
+            --airbnb-text: #222222;
+            --airbnb-text-light: #717171;
+            --airbnb-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+            --airbnb-shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -15,79 +31,85 @@
         }
         
         body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
+            font-family: 'Circular', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
+            background-color: #FFFFFF;
+            color: var(--airbnb-text);
+            line-height: 1.5;
+            font-size: 14px;
+            -webkit-font-smoothing: antialiased;
         }
         
-        h1, h2, h3, h4 {
-            font-family: 'Poppins', sans-serif;
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cereal', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
             font-weight: 600;
+            color: var(--airbnb-dark);
         }
         
         .container {
-            width: 90%;
-            max-width: 1200px;
+            width: 100%;
+            max-width: 1120px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 24px;
         }
         
-        /* Estilos de la barra de navegación */
+        /* ===== BARRA DE NAVEGACIÓN AL ESTILO AIRBNB ===== */
         header {
-            background-color: #0a4d68;
+            background-color: #FFFFFF;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 15px rgba(10, 77, 104, 0.2);
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid var(--airbnb-border);
         }
         
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 0;
+            padding: 14px 0;
+            height: 80px;
         }
         
         .logo {
-            color: white;
-            font-size: 1.8rem;
-            font-weight: 700;
+            color: var(--airbnb-red);
+            font-size: 24px;
+            font-weight: 800;
             text-decoration: none;
             display: flex;
             align-items: center;
+            letter-spacing: -0.5px;
         }
         
         .logo i {
-            color: #ffd166;
-            margin-right: 10px;
+            margin-right: 8px;
+            color: var(--airbnb-red);
         }
         
         .logo span {
-            color: #ffd166;
+            color: var(--airbnb-red);
         }
         
         .nav-links {
             display: flex;
             list-style: none;
+            gap: 32px;
         }
         
         .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            padding: 5px 0;
             position: relative;
         }
         
+        .nav-links a {
+            color: var(--airbnb-gray);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.2s;
+            padding: 10px 0;
+        }
+        
         .nav-links a:hover {
-            color: #ffd166;
+            color: var(--airbnb-dark);
         }
         
         .nav-links a::after {
@@ -97,8 +119,8 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: #ffd166;
-            transition: width 0.3s;
+            background-color: var(--airbnb-dark);
+            transition: width 0.2s;
         }
         
         .nav-links a:hover::after {
@@ -107,332 +129,341 @@
         
         .menu-toggle {
             display: none;
-            color: white;
+            color: var(--airbnb-dark);
             font-size: 1.5rem;
             cursor: pointer;
+            background: none;
+            border: none;
         }
         
-        /* Estilos del encabezado con imagen de fondo */
+        /* ===== ENCABEZADO HERO AL ESTILO AIRBNB ===== */
         .hero {
-            background: linear-gradient(rgba(10, 77, 104, 0.7), rgba(10, 77, 104, 0.7)), url('https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
             color: white;
-            padding: 120px 0;
+            padding: 160px 0 100px;
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 64px;
         }
         
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
         
         .hero h1 {
-            font-size: 3.2rem;
-            margin-bottom: 25px;
-            line-height: 1.2;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            color: white;
+            font-size: 58px;
+            margin-bottom: 24px;
+            line-height: 1.1;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.4);
         }
         
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 35px;
+            font-size: 18px;
+            margin-bottom: 40px;
             opacity: 0.95;
-            font-weight: 300;
+            font-weight: 400;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .hero-btn {
-            display: inline-block;
-            background-color: #ffd166;
-            color: #0a4d68;
-            padding: 14px 35px;
-            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 209, 102, 0.3);
+            font-size: 16px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
         
         .hero-btn:hover {
-            background-color: #ffc745;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 209, 102, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to right, #D50C52 0%, #BC1A6E 50%, #A70E5D 100%);
         }
         
-        /* Estilos de la sección descriptiva */
+        .hero-btn i {
+            margin-right: 8px;
+        }
+        
+        /* ===== SECCIÓN DESCRIPTIVA AL ESTILO AIRBNB ===== */
         .description {
-            margin-bottom: 50px;
-            padding: 45px;
+            margin-bottom: 64px;
+            padding: 40px;
             background-color: white;
             border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
-            border-left: 6px solid #0a4d68;
+            box-shadow: var(--airbnb-shadow-light);
+            border: 1px solid var(--airbnb-border);
         }
         
         .description h2 {
-            color: #0a4d68;
-            margin-bottom: 20px;
-            font-size: 2.3rem;
-        }
-        
-        .description p {
-            font-size: 1.15rem;
-            color: #555;
-            margin-bottom: 20px;
-        }
-        
-        .highlight {
-            color: #0a4d68;
+            color: var(--airbnb-dark);
+            margin-bottom: 24px;
+            font-size: 32px;
             font-weight: 600;
         }
         
-        /* ESTILOS DE LA NUEVA TABLA FAQ */
+        .description p {
+            font-size: 16px;
+            color: var(--airbnb-text-light);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .highlight {
+            color: var(--airbnb-red);
+            font-weight: 600;
+        }
+        
+        /* ===== TABLA FAQ AL ESTILO AIRBNB ===== */
         .faq-table-container {
-            margin-bottom: 60px;
-            overflow-x: auto;
+            margin-bottom: 80px;
         }
         
         .faq-table-container h2 {
-            color: #0a4d68;
-            margin-bottom: 30px;
-            font-size: 2.3rem;
-            text-align: center;
-            position: relative;
-            padding-bottom: 15px;
-        }
-        
-        .faq-table-container h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background-color: #ffd166;
-            border-radius: 2px;
+            color: var(--airbnb-dark);
+            margin-bottom: 40px;
+            font-size: 32px;
+            font-weight: 600;
+            text-align: left;
         }
         
         .faq-table {
             width: 100%;
-            border-collapse: collapse;
+            border-collapse: separate;
+            border-spacing: 0;
             background-color: white;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            box-shadow: var(--airbnb-shadow-light);
+            border: 1px solid var(--airbnb-border);
         }
         
-        /* FILA DE CATEGORÍA (azul que ocupa 3 columnas) */
+        /* FILA DE CATEGORÍA AL ESTILO AIRBNB */
         .category-row {
-            background-color: #0a4d68;
-            color: white;
+            background-color: var(--airbnb-hover);
         }
         
         .category-cell {
-            padding: 22px 20px;
+            padding: 24px 32px;
             font-weight: 600;
-            font-size: 1.3rem;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-size: 26px;
+            text-align: left;
+            color: var(--airbnb-dark);
+            border-bottom: 1px solid var(--airbnb-border);
         }
         
         .category-cell i {
-            color: #ffd166;
-            margin-right: 15px;
-            font-size: 1.5rem;
+            color: var(--airbnb-red);
+            margin-right: 12px;
+            font-size: 18px;
         }
         
-        /* FILAS DE PREGUNTAS */
+        /* FILAS DE PREGUNTAS AL ESTILO AIRBNB */
         .faq-table td {
-            padding: 25px 20px;
-            border-bottom: 1px solid #eee;
+            padding: 24px 32px;
+            border-bottom: 1px solid var(--airbnb-border);
             vertical-align: top;
+            transition: background-color 0.2s;
         }
         
         .faq-table tr:last-child td {
             border-bottom: none;
         }
         
-        .faq-table tr.question-row:hover {
-            background-color: #f8fcfd;
+        .faq-table tr.question-row:hover td {
+            background-color: var(--airbnb-hover);
         }
         
-        /* ESTILOS PARA ENLACES EN LAS CELDAS */
-        .question-cell-link {
+        /* ENLACES AL ESTILO AIRBNB */
+        .question-cell-link, .answer-cell-link, .image-cell-link {
             display: block;
             text-decoration: none;
             color: inherit;
-            transition: all 0.3s;
+            transition: all 0.2s;
         }
         
-        .question-cell-link:hover {
-            transform: translateX(5px);
+        .question-cell-link:hover, .answer-cell-link:hover {
+            color: var(--airbnb-red);
         }
         
         .question-title {
-            color: #0a4d68;
-            font-weight: 700;
-            font-size: 1.2rem;
+            color: var(--airbnb-dark);
+            font-weight: 600;
+            font-size: 16px;
             margin-bottom: 8px;
             display: flex;
             align-items: center;
         }
         
         .question-title i {
-            color: #ffd166;
-            margin-right: 10px;
-            font-size: 1.1rem;
+            color: var(--airbnb-red);
+            margin-right: 12px;
+            font-size: 16px;
+            min-width: 20px;
         }
         
         .question-desc {
-            color: #777;
-            font-size: 0.95rem;
+            color: var(--airbnb-gray);
+            font-size: 14px;
             line-height: 1.5;
-            margin-bottom: 5px;
-        }
-        
-        .answer-cell-link {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s;
-        }
-        
-        .answer-cell-link:hover {
-            transform: translateX(5px);
+            margin-bottom: 8px;
         }
         
         .short-answer {
-            color: #555;
-            font-size: 1rem;
+            color: var(--airbnb-text);
+            font-size: 15px;
             line-height: 1.6;
-        }
-        
-        .image-cell-link {
-            display: block;
-            text-decoration: none;
-            transition: all 0.3s;
         }
         
         .preview-img {
             width: 100%;
-            height: 140px;
+            height: 120px;
             object-fit: cover;
             border-radius: 8px;
             transition: transform 0.3s;
-            border: 1px solid #eee;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--airbnb-border);
         }
         
         .image-cell-link:hover .preview-img {
-            transform: scale(1.05);
+            transform: scale(1.03);
+            box-shadow: var(--airbnb-shadow-light);
         }
         
-        /* Indicador de que son enlaces */
+        /* INDICADOR DE ENLACES AL ESTILO AIRBNB */
         .link-indicator {
-            color: #3498db;
-            font-size: 0.9rem;
-            margin-top: 8px;
+            color: var(--airbnb-red);
+            font-size: 13px;
+            margin-top: 12px;
             display: flex;
             align-items: center;
+            font-weight: 500;
         }
         
         .link-indicator i {
-            margin-right: 5px;
+            margin-right: 6px;
+            font-size: 12px;
         }
         
-        /* Estilos del pie de página */
+        /* ===== PIE DE PÁGINA AL ESTILO AIRBNB ===== */
         footer {
-            background-color: #0a4d68;
-            color: white;
-            padding: 50px 0 30px;
+            background-color: #F7F7F7;
+            border-top: 1px solid var(--airbnb-border);
+            padding: 48px 0 24px;
+            margin-top: 64px;
         }
         
         .footer-content {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
+            gap: 40px;
         }
         
         .footer-column {
             flex: 1;
-            min-width: 250px;
-            margin-bottom: 30px;
+            min-width: 200px;
         }
         
         .footer-column h3 {
-            color: #ffd166;
+            color: var(--airbnb-dark);
             margin-bottom: 20px;
-            font-size: 1.4rem;
+            font-size: 16px;
+            font-weight: 600;
         }
         
-        .footer-column p, .footer-column a {
-            color: #e0f0f7;
+        .footer-column p {
+            color: var(--airbnb-text-light);
+            margin-bottom: 16px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .footer-column a {
+            color: var(--airbnb-text-light);
             margin-bottom: 12px;
             display: block;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.2s;
+            font-size: 14px;
         }
         
         .footer-column a:hover {
-            color: #ffd166;
+            color: var(--airbnb-red);
+            text-decoration: underline;
         }
         
         .contact-info {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
         
         .contact-info i {
-            color: #ffd166;
-            margin-right: 10px;
-            margin-top: 3px;
+            color: var(--airbnb-red);
+            margin-right: 12px;
+            margin-top: 2px;
+            font-size: 16px;
         }
         
         .social-links {
             display: flex;
             margin-top: 20px;
+            gap: 16px;
         }
         
         .social-links a {
-            color: white;
-            margin-right: 20px;
-            font-size: 1.4rem;
-            transition: color 0.3s;
+            color: var(--airbnb-gray);
+            font-size: 18px;
+            transition: color 0.2s;
         }
         
         .social-links a:hover {
-            color: #ffd166;
+            color: var(--airbnb-red);
         }
         
         .copyright {
             text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.95rem;
-            color: #b0d4e0;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--airbnb-border);
+            font-size: 14px;
+            color: var(--airbnb-gray);
         }
         
-        /* Estilos responsivos */
+        /* ===== RESPONSIVE AL ESTILO AIRBNB ===== */
         @media (max-width: 992px) {
+            .container {
+                padding: 0 20px;
+            }
+            
             .hero h1 {
-                font-size: 2.7rem;
+                font-size: 40px;
             }
             
             .description h2, .faq-table-container h2 {
-                font-size: 2rem;
+                font-size: 28px;
             }
             
-            .footer-column {
-                min-width: 200px;
+            .faq-table td {
+                padding: 20px;
+            }
+            
+            .category-cell {
+                padding: 20px;
+                font-size: 16px;
             }
         }
         
@@ -447,12 +478,12 @@
                 left: -100%;
                 width: 100%;
                 flex-direction: column;
-                background-color: #0a4d68;
+                background-color: white;
                 transition: left 0.3s;
-                padding: 25px 0;
-                text-align: center;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                padding: 24px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
                 z-index: 999;
+                gap: 0;
             }
             
             .nav-links.active {
@@ -460,46 +491,40 @@
             }
             
             .nav-links li {
-                margin: 18px 0;
+                margin: 12px 0;
+            }
+            
+            .nav-links a {
+                padding: 12px 0;
+                font-size: 16px;
             }
             
             .hero {
-                padding: 90px 0;
-                background-attachment: scroll;
+                padding: 120px 0 80px;
             }
             
             .hero h1 {
-                font-size: 2.3rem;
+                font-size: 32px;
             }
             
             .hero p {
-                font-size: 1.15rem;
+                font-size: 16px;
             }
             
             .description {
-                padding: 30px;
+                padding: 32px;
             }
             
             .description h2, .faq-table-container h2 {
-                font-size: 1.8rem;
+                font-size: 24px;
             }
             
-            .faq-table td {
-                padding: 18px 15px;
-            }
-            
-            .category-cell {
-                padding: 18px 15px;
-                font-size: 1.2rem;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-            }
-            
-            /* Ajustes para tabla en móviles */
+            /* TABLA RESPONSIVE AL ESTILO AIRBNB */
             .faq-table {
                 display: block;
+                border: none;
+                box-shadow: none;
+                background: none;
             }
             
             .faq-table tbody {
@@ -508,61 +533,97 @@
             
             .faq-table tr {
                 display: block;
-                margin-bottom: 15px;
-                border: 1px solid #eee;
-                border-radius: 8px;
+                margin-bottom: 16px;
+                background: white;
+                border-radius: 12px;
                 overflow: hidden;
+                box-shadow: var(--airbnb-shadow-light);
+                border: 1px solid var(--airbnb-border);
             }
             
             .category-row {
                 display: block;
-                margin-bottom: 5px;
+                border-radius: 12px 12px 0 0;
+                overflow: hidden;
             }
             
             .category-cell {
                 display: block;
                 text-align: left;
+                border-bottom: none;
             }
             
             .faq-table td {
                 display: block;
-                border-bottom: none;
-                padding: 15px;
+                border-bottom: 1px solid var(--airbnb-border);
             }
             
-            .question-title {
-                font-size: 1.1rem;
+            .faq-table td:last-child {
+                border-bottom: none;
             }
             
             .preview-img {
-                height: 120px;
+                height: 180px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 32px;
             }
         }
         
         @media (max-width: 576px) {
+            .hero {
+                padding: 100px 0 64px;
+            }
+            
             .hero h1 {
-                font-size: 2rem;
+                font-size: 28px;
             }
             
             .hero p {
-                font-size: 1rem;
+                font-size: 15px;
+            }
+            
+            .hero-btn {
+                padding: 12px 24px;
+                font-size: 15px;
+            }
+            
+            .description {
+                padding: 24px;
             }
             
             .description h2, .faq-table-container h2 {
-                font-size: 1.6rem;
+                font-size: 22px;
             }
             
             .category-cell {
-                font-size: 1.1rem;
+                font-size: 15px;
+                padding: 16px;
             }
             
             .question-title {
-                font-size: 1rem;
+                font-size: 15px;
             }
             
             .short-answer {
-                font-size: 0.9rem;
+                font-size: 14px;
             }
+            
+            .faq-table td {
+                padding: 16px;
+            }
+        }
+        
+        /* ===== ANIMACIONES AL ESTILO AIRBNB ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
         }
     </style>
 </head>
@@ -573,12 +634,13 @@
             <nav class="navbar">
                 <a href="#" class="logo">
                     <i class="fas fa-umbrella-beach"></i>
-                    Casa<span>Pando</span>
+                    <span>Casa Pando &nbsp</span> 
+                  <i class="fa-solid fa-paw"></i>
                 </a>
                 
-                <div class="menu-toggle" id="mobile-menu">
+                <button class="menu-toggle" id="mobile-menu" aria-label="Menú">
                     <i class="fas fa-bars"></i>
-                </div>
+                </button>
                 
                 <ul class="nav-links" id="nav-links">
                     <li><a href="https://www.airbnb.mx" target="_blank">Airbnb México</a></li>
@@ -594,34 +656,37 @@
     <!-- Encabezado con imagen de fondo -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Preguntas Frecuentes <br> Casa Pando Acapulco</h1>
-            <p>Encuentra respuestas rápidas a las preguntas más comunes de nuestros huéspedes. Tu comodidad y experiencia son nuestra prioridad.</p>
-            <a href="#faq" class="hero-btn">Ver Preguntas Frecuentes</a>
+            <h1 class="fade-in">Preguntas frecuentes<br>Casa Pando <i class="fa-solid fa-paw"></i> Acapulco</h1>
+            <p class="fade-in">Respuestas rápidas a las preguntas más comunes de nuestros huéspedes. Tu comodidad y experiencia son nuestra prioridad.</p>
+            <a href="#faq" class="hero-btn fade-in">
+                <i class="fas fa-chevron-down"></i>
+                Ver preguntas frecuentes
+            </a>
         </div>
     </section>
 
     <!-- Sección descriptiva -->
     <section class="description container" id="description">
-        <h2>Bienvenido a Casa Pando en Acapulco</h2>
-        <p>En <span class="highlight">Casa Pando</span> nos esforzamos por ofrecerte una experiencia inolvidable en una de las playas más hermosas de México. Esta sección de preguntas frecuentes está diseñada para resolver tus dudas antes y durante tu estancia.</p>
-        <p>A continuación encontrarás información organizada por categorías sobre <span class="highlight">check-in y check-out, amenidades, políticas de la casa, actividades locales</span> y <span class="highlight">recomendaciones de seguridad</span>. Cada pregunta incluye un enlace a información más detallada y recursos externos útiles para planificar tu viaje perfecto a Acapulco.</p>
+        <h2 class="fade-in">Bienvenido a Casa Pando en Acapulco</h2>
+        <p class="fade-in">En <span class="highlight">Casa Pando</span> nos esforzamos por ofrecerte una experiencia inolvidable en una de las playas más hermosas de México. Esta sección de preguntas frecuentes está diseñada para resolver tus dudas antes y durante tu estancia.</p>
+        <p class="fade-in">A continuación encontrarás información organizada por categorías sobre <span class="highlight">cómo llegar y check-in, amenidades, políticas de la casa, actividades locales</span> y <span class="highlight">recomendaciones de seguridad</span>. Cada pregunta incluye un enlace a información más detallada.</p>
     </section>
 
-    <!-- Tabla de preguntas frecuentes - NUEVA ESTRUCTURA -->
+    <!-- Tabla de preguntas frecuentes -->
     <section class="container faq-table-container" id="faq">
-        <h2>Preguntas Frecuentes Organizadas</h2>
+        <h2 class="fade-in">Preguntas frecuentes organizadas</h2>
         <table class="faq-table">
             <tbody>
-                <!-- CATEGORÍA 1: Check-in / Check-out -->
-                <tr class="category-row">
+                <!-- CATEGORÍA 1: Cómo llegar / Check-in / Check-out -->
+                <tr class="category-row fade-in">
                     <td colspan="3" class="category-cell">
                         <i class="fas fa-key"></i>
-                        Cómo llegar / Check-in / Check-out - Horarios, procedimientos y acceso
+                        Cómo llegar / Check-in / Check-out
                     </td>
                 </tr>
                 
                 <!-- PREGUNTA 1.1 -->
-                <tr class="question-row">
+                <tr class="question-row fade-in">
                     <td>
                         <a href="https://www.airbnb.com/help/article/136" target="_blank" class="question-cell-link">
                             <div class="question-title">
@@ -629,17 +694,17 @@
                                 ¿Cuáles son los horarios de check-in y check-out?
                             </div>
                             <div class="question-desc">
-                                Información sobre los horarios establecidos para entrada y salida de la propiedad
+                                Información sobre los horarios establecidos
                             </div>
                             <div class="link-indicator">
-                                <i class="fas fa-external-link-alt"></i> Haz clic para más detalles
+                                <i class="fas fa-external-link-alt"></i> Más detalles
                             </div>
                         </a>
                     </td>
                     <td>
                         <a href="https://www.airbnb.com/help/article/136" target="_blank" class="answer-cell-link">
                             <div class="short-answer">
-                                Check-in a partir de las 3:00 PM y check-out antes de las 11:00 AM. Opciones flexibles disponibles con cargo adicional.
+                                Check-in desde las 3:00 PM y check-out antes de las 11:00 AM. Opciones flexibles disponibles.
                             </div>
                             <div class="link-indicator">
                                 <i class="fas fa-external-link-alt"></i> Ver respuesta completa
@@ -649,15 +714,12 @@
                     <td>
                         <a href="https://www.airbnb.com/help/article/136" target="_blank" class="image-cell-link">
                             <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Check-in en casa de playa" class="preview-img">
-                            <div class="link-indicator">
-                                <i class="fas fa-external-link-alt"></i> Ver imagen relacionada
-                            </div>
                         </a>
                     </td>
                 </tr>
                 
                 <!-- PREGUNTA 1.2 -->
-                <tr class="question-row">
+                <tr class="question-row fade-in">
                     <td>
                         <a href="https://www.airbnb.com/help/article/125" target="_blank" class="question-cell-link">
                             <div class="question-title">
@@ -665,10 +727,10 @@
                                 ¿Cómo obtengo las llaves o acceso a la propiedad?
                             </div>
                             <div class="question-desc">
-                                Proceso de acceso seguro a Casa Paraíso
+                                Proceso de acceso seguro a Casa Pando
                             </div>
                             <div class="link-indicator">
-                                <i class="fas fa-external-link-alt"></i> Haz clic para más detalles
+                                <i class="fas fa-external-link-alt"></i> Más detalles
                             </div>
                         </a>
                     </td>
@@ -685,23 +747,20 @@
                     <td>
                         <a href="https://www.airbnb.com/help/article/125" target="_blank" class="image-cell-link">
                             <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sistema de acceso digital" class="preview-img">
-                            <div class="link-indicator">
-                                <i class="fas fa-external-link-alt"></i> Ver imagen relacionada
-                            </div>
                         </a>
                     </td>
                 </tr>
                 
                 <!-- CATEGORÍA 2: Amenidades y Servicios -->
-                <tr class="category-row">
+                <tr class="category-row fade-in">
                     <td colspan="3" class="category-cell">
                         <i class="fas fa-home"></i>
-                        Amenidades y Servicios - Lo que incluye tu estancia
+                        Amenidades y Servicios
                     </td>
                 </tr>
                 
                 <!-- PREGUNTA 2.1 -->
-                <tr class="question-row">
+                <tr class="question-row fade-in">
                     <td>
                         <a href="https://www.airbnb.com/help/article/871" target="_blank" class="question-cell-link">
                             <div class="question-title">
@@ -712,7 +771,7 @@
                                 Servicios básicos incluidos en la propiedad
                             </div>
                             <div class="link-indicator">
-                                <i class="fas fa-external-link-alt"></i> Haz clic para más detalles
+                                <i class="fas fa-external-link-alt"></i> Más detalles
                             </div>
                         </a>
                     </td>
@@ -729,15 +788,12 @@
                     <td>
                         <a href="https://www.airbnb.com/help/article/871" target="_blank" class="image-cell-link">
                             <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Amenidades de la casa" class="preview-img">
-                            <div class="link-indicator">
-                                <i class="fas fa-external-link-alt"></i> Ver imagen relacionada
-                            </div>
                         </a>
                     </td>
                 </tr>
                 
                 <!-- PREGUNTA 2.2 -->
-                <tr class="question-row">
+                <tr class="question-row fade-in">
                     <td>
                         <a href="https://www.airbnb.com/help/article/873" target="_blank" class="question-cell-link">
                             <div class="question-title">
@@ -748,7 +804,7 @@
                                 Información sobre áreas de recreación
                             </div>
                             <div class="link-indicator">
-                                <i class="fas fa-external-link-alt"></i> Haz clic para más detalles
+                                <i class="fas fa-external-link-alt"></i> Más detalles
                             </div>
                         </a>
                     </td>
@@ -765,23 +821,20 @@
                     <td>
                         <a href="https://www.airbnb.com/help/article/873" target="_blank" class="image-cell-link">
                             <img src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Alberca de la casa" class="preview-img">
-                            <div class="link-indicator">
-                                <i class="fas fa-external-link-alt"></i> Ver imagen relacionada
-                            </div>
                         </a>
                     </td>
                 </tr>
                 
                 <!-- CATEGORÍA 3: Políticas de la Casa -->
-                <tr class="category-row">
+                <tr class="category-row fade-in">
                     <td colspan="3" class="category-cell">
                         <i class="fas fa-exclamation-circle"></i>
-                        Políticas de la Casa - Reglas y condiciones importantes
+                        Políticas de la Casa
                     </td>
                 </tr>
                 
                 <!-- PREGUNTA 3.1 -->
-                <tr class="question-row">
+                <tr class="question-row fade-in">
                     <td>
                         <a href="https://www.airbnb.com/help/article/2867" target="_blank" class="question-cell-link">
                             <div class="question-title">
@@ -792,14 +845,14 @@
                                 Política sobre animales de compañía
                             </div>
                             <div class="link-indicator">
-                                <i class="fas fa-external-link-alt"></i> Haz clic para más detalles
+                                <i class="fas fa-external-link-alt"></i> Más detalles
                             </div>
                         </a>
                     </td>
                     <td>
                         <a href="https://www.airbnb.com/help/article/2867" target="_blank" class="answer-cell-link">
                             <div class="short-answer">
-                                Solo mascotas pequeñas con autorización previa. Cargo adicional de $20 USD por noche.
+                                Solo mascotas pequeñas con autorización previa. Cargo adicional aplicable.
                             </div>
                             <div class="link-indicator">
                                 <i class="fas fa-external-link-alt"></i> Ver respuesta completa
@@ -809,59 +862,20 @@
                     <td>
                         <a href="https://www.airbnb.com/help/article/2867" target="_blank" class="image-cell-link">
                             <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Políticas de mascotas" class="preview-img">
-                            <div class="link-indicator">
-                                <i class="fas fa-external-link-alt"></i> Ver imagen relacionada
-                            </div>
-                        </a>
-                    </td>
-                </tr>
-                
-                <!-- PREGUNTA 3.2 -->
-                <tr class="question-row">
-                    <td>
-                        <a href="https://www.airbnb.com/help/article/2853" target="_blank" class="question-cell-link">
-                            <div class="question-title">
-                                <i class="fas fa-ban"></i>
-                                ¿Qué políticas de cancelación aplican?
-                            </div>
-                            <div class="question-desc">
-                                Condiciones para cancelar tu reservación
-                            </div>
-                            <div class="link-indicator">
-                                <i class="fas fa-external-link-alt"></i> Haz clic para más detalles
-                            </div>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="https://www.airbnb.com/help/article/2853" target="_blank" class="answer-cell-link">
-                            <div class="short-answer">
-                                Reembolso del 100% hasta 30 días antes. 50% hasta 7 días antes. Consulta términos completos.
-                            </div>
-                            <div class="link-indicator">
-                                <i class="fas fa-external-link-alt"></i> Ver respuesta completa
-                            </div>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="https://www.airbnb.com/help/article/2853" target="_blank" class="image-cell-link">
-                            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Políticas de cancelación" class="preview-img">
-                            <div class="link-indicator">
-                                <i class="fas fa-external-link-alt"></i> Ver imagen relacionada
-                            </div>
                         </a>
                     </td>
                 </tr>
                 
                 <!-- CATEGORÍA 4: Actividades y Recomendaciones -->
-                <tr class="category-row">
+                <tr class="category-row fade-in">
                     <td colspan="3" class="category-cell">
                         <i class="fas fa-umbrella-beach"></i>
-                        Actividades y Recomendaciones - Qué hacer en Acapulco
+                        Actividades y Recomendaciones
                     </td>
                 </tr>
                 
                 <!-- PREGUNTA 4.1 -->
-                <tr class="question-row">
+                <tr class="question-row fade-in">
                     <td>
                         <a href="https://www.visitacapulco.com/clavados/" target="_blank" class="question-cell-link">
                             <div class="question-title">
@@ -872,7 +886,7 @@
                                 Atracción turística imperdible en Acapulco
                             </div>
                             <div class="link-indicator">
-                                <i class="fas fa-external-link-alt"></i> Haz clic para más detalles
+                                <i class="fas fa-external-link-alt"></i> Más detalles
                             </div>
                         </a>
                     </td>
@@ -889,45 +903,6 @@
                     <td>
                         <a href="https://www.visitacapulco.com/clavados/" target="_blank" class="image-cell-link">
                             <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Clavados La Quebrada" class="preview-img">
-                            <div class="link-indicator">
-                                <i class="fas fa-external-link-alt"></i> Ver imagen relacionada
-                            </div>
-                        </a>
-                    </td>
-                </tr>
-                
-                <!-- PREGUNTA 4.2 -->
-                <tr class="question-row">
-                    <td>
-                        <a href="https://www.visitacapulco.com/transportacion/" target="_blank" class="question-cell-link">
-                            <div class="question-title">
-                                <i class="fas fa-car"></i>
-                                ¿Cómo moverse en Acapulco? Opciones de transporte
-                            </div>
-                            <div class="question-desc">
-                                Medios de transporte disponibles en la ciudad
-                            </div>
-                            <div class="link-indicator">
-                                <i class="fas fa-external-link-alt"></i> Haz clic para más detalles
-                            </div>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="https://www.visitacapulco.com/transportacion/" target="_blank" class="answer-cell-link">
-                            <div class="short-answer">
-                                Taxis, Uber, transporte público y renta de autos. Te recomendamos usar aplicaciones para mayor seguridad.
-                            </div>
-                            <div class="link-indicator">
-                                <i class="fas fa-external-link-alt"></i> Ver respuesta completa
-                            </div>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="https://www.visitacapulco.com/transportacion/" target="_blank" class="image-cell-link">
-                            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Transporte en Acapulco" class="preview-img">
-                            <div class="link-indicator">
-                                <i class="fas fa-external-link-alt"></i> Ver imagen relacionada
-                            </div>
                         </a>
                     </td>
                 </tr>
@@ -939,19 +914,19 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-column">
+                <div class="footer-column fade-in">
                     <h3>Casa Pando Acapulco</h3>
                     <p>Tu hogar lejos de casa en la hermosa bahía de Acapulco. Ofrecemos comodidad, seguridad y una experiencia inolvidable frente al mar.</p>
                     <div class="social-links">
-                        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://airbnb.com" target="_blank"><i class="fab fa-airbnb"></i></a>
-                        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://airbnb.com" target="_blank" aria-label="Airbnb"><i class="fab fa-airbnb"></i></a>
+                        <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 
-                <div class="footer-column">
-                    <h3>Contacto de Emergencia</h3>
+                <div class="footer-column fade-in">
+                    <h3>Contacto</h3>
                     <div class="contact-info">
                         <i class="fas fa-phone"></i>
                         <div>
@@ -974,8 +949,8 @@
                     </div>
                 </div>
                 
-                <div class="footer-column">
-                    <h3>Enlaces Rápidos</h3>
+                <div class="footer-column fade-in">
+                    <h3>Enlaces rápidos</h3>
                     <a href="https://www.airbnb.com/help" target="_blank">Centro de Ayuda de Airbnb</a>
                     <a href="https://www.visitacapulco.com" target="_blank">Guía Turística Oficial de Acapulco</a>
                     <a href="https://www.salud.gob.mx" target="_blank">Recomendaciones de Salud en México</a>
@@ -983,8 +958,8 @@
                 </div>
             </div>
             
-            <div class="copyright">
-                <p>© 2023 Casa Pando Acapulco. Todos los derechos reservados. | Este sitio es para fines informativos. Las políticas específicas pueden variar.</p>
+            <div class="copyright fade-in">
+                <p>© 2023 Casa Pando Acapulco. Todos los derechos reservados.</p>
                 <p>Las imágenes son ilustrativas. Para ver fotos reales de la propiedad, visita nuestro perfil de Airbnb.</p>
             </div>
         </div>
@@ -994,6 +969,7 @@
         // JavaScript para el menú móvil
         document.getElementById('mobile-menu').addEventListener('click', function() {
             document.getElementById('nav-links').classList.toggle('active');
+            this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
         });
         
         // Cerrar menú móvil al hacer clic en un enlace
@@ -1001,6 +977,7 @@
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
                 document.getElementById('nav-links').classList.remove('active');
+                document.getElementById('mobile-menu').setAttribute('aria-expanded', 'false');
             });
         });
         
@@ -1015,33 +992,46 @@
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
                     });
                 }
             });
         });
         
-        // Añadir efecto de aparición suave a la tabla
+        // Animación de aparición al hacer scroll
         document.addEventListener('DOMContentLoaded', function() {
-            const tableRows = document.querySelectorAll('.faq-table tbody tr');
+            const fadeElements = document.querySelectorAll('.fade-in');
             
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
+                        entry.target.style.animation = 'fadeIn 0.5s ease-out forwards';
                     }
                 });
             }, { threshold: 0.1 });
             
-            tableRows.forEach((row, index) => {
-                row.style.opacity = '0';
-                row.style.transform = 'translateY(20px)';
-                row.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                row.style.transitionDelay = (index * 0.1) + 's';
+            fadeElements.forEach(element => {
+                element.style.opacity = '0';
+                observer.observe(element);
+            });
+            
+            // Efecto hover para filas de la tabla
+            const tableRows = document.querySelectorAll('.question-row');
+            tableRows.forEach(row => {
+                row.addEventListener('mouseenter', function() {
+                    this.style.cursor = 'pointer';
+                });
                 
-                observer.observe(row);
+                row.addEventListener('click', function(e) {
+                    // Si no se hizo clic en un enlace específico, hacer clic en el primer enlace
+                    if (!e.target.closest('a')) {
+                        const firstLink = this.querySelector('a');
+                        if (firstLink) {
+                            firstLink.click();
+                        }
+                    }
+                });
             });
         });
     </script>
