@@ -386,6 +386,7 @@
             border: 1px solid var(--airbnb-border);
             transition: all 0.2s;
             box-shadow: var(--airbnb-shadow-light);
+            cursor: pointer;
         }
         
         .video-preview:hover {
@@ -662,7 +663,6 @@
                 <a href="#" class="logo">
                     <i class="fas fa-umbrella-beach"></i>
                     <span>Casa Pando <i class="fa-solid fa-paw"></i></span> 
-                  
                 </a>
                 
                 <button class="menu-toggle" id="mobile-menu" aria-label="Menú">
@@ -703,7 +703,7 @@
     <main class="main-content container">
         <!-- Botón de regreso -->
         <div class="back-button fade-in">
-            <a href="casapandoacapulco.html">
+            <a href="index.html">
                 <i class="fas fa-arrow-left"></i>
                 <span id="back-text">Volver a todas las preguntas</span>
             </a>
@@ -733,13 +733,13 @@
             <div class="video-container">
                 <!-- 
                     CONFIGURACIÓN FÁCIL: 
-                    1. Cambia el data-video-id por el ID de tu video de YouTube
+                    1. Cambia el data-video-url por la URL de tu video de YouTube
                     2. El enlace y la miniatura se actualizarán automáticamente
                     
-                    Ejemplos de IDs válidos:
-                    - dQw4w9WgXcQ (Rick Astley - Never Gonna Give You Up)
-                    - I8LaxKfccWU (ejemplo actual)
-                    - Tu_ID_De_YouTube_Aquí
+                    Ejemplos de URLs válidas:
+                    - https://www.youtube.com/watch?v=dQw4w9WgXcQ
+                    - https://youtu.be/dQw4w9WgXcQ
+                    - https://www.youtube.com/embed/dQw4w9WgXcQ
                 -->
                 <div class="video-preview" data-video-url="https://www.youtube.com/watch?v=I8LaxKfccWU">
                     <div class="video-thumbnail">
@@ -879,10 +879,8 @@
                 const videoId = getYouTubeId(videoUrl);
                 
                 if (videoId) {
-                    // Convertir el div en un enlace
-                    preview.href = `https://www.youtube.com/watch?v=${videoId}`;
-                    preview.target = '_blank';
-                    preview.style.cursor = 'pointer';
+                    // Guardar el enlace en un atributo de datos
+                    preview.setAttribute('data-youtube-link', `https://www.youtube.com/watch?v=${videoId}`);
                     
                     // Configurar miniatura
                     const thumbnail = preview.querySelector('.youtube-thumbnail');
@@ -898,6 +896,31 @@
                         
                         thumbnail.alt = `Miniatura del video de YouTube`;
                     }
+                    
+                    // Agregar event listener para abrir el enlace al hacer clic
+                    preview.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const link = this.getAttribute('data-youtube-link');
+                        if (link) {
+                            window.open(link, '_blank');
+                        }
+                    });
+                    
+                    // Agregar event listener para la tecla Enter (accesibilidad)
+                    preview.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            const link = this.getAttribute('data-youtube-link');
+                            if (link) {
+                                window.open(link, '_blank');
+                            }
+                        }
+                    });
+                    
+                    // Hacer que el elemento sea accesible por teclado
+                    preview.setAttribute('tabindex', '0');
+                    preview.setAttribute('role', 'button');
+                    preview.setAttribute('aria-label', 'Ver video de YouTube: ' + preview.querySelector('h3').textContent);
                 } else {
                     console.warn('URL de YouTube no válida:', videoUrl);
                 }
