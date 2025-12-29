@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Pando Acapulco - Preguntas Frecuentes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Estilos de la barra de navegación */
+        header {
+            background-color: #0a4d68;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(10, 77, 104, 0.2);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+        
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            color: #ffd166;
+            margin-right: 10px;
+        }
+        
+        .logo span {
+            color: #ffd166;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #ffd166;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #ffd166;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Estilos del encabezado con imagen de fondo */
+        .hero {
+            background: linear-gradient(rgba(10, 77, 104, 0.7), rgba(10, 77, 104, 0.7)), url('https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+        
+        .hero-btn {
+            display: inline-block;
+            background-color: #ffd166;
+            color: #0a4d68;
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 209, 102, 0.3);
+        }
+        
+        .hero-btn:hover {
+            background-color: #ffc745;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 209, 102, 0.4);
+        }
+        
+        /* Estilos de la sección descriptiva */
+        .description {
+            margin-bottom: 50px;
+            padding: 45px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            border-left: 6px solid #0a4d68;
+        }
+        
+        .description h2 {
+            color: #0a4d68;
+            margin-bottom: 20px;
+            font-size: 2.3rem;
+        }
+        
+        .description p {
+            font-size: 1.15rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .highlight {
+            color: #0a4d68;
+            font-weight: 600;
+        }
+        
+        /* ESTILOS DE LA NUEVA TABLA FAQ */
+        .faq-table-container {
+            margin-bottom: 60px;
+            overflow-x: auto;
+        }
+        
+        .faq-table-container h2 {
+            color: #0a4d68;
+            margin-bottom: 30px;
+            font-size: 2.3rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .faq-table-container h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: #ffd166;
+            border-radius: 2px;
+        }
+        
+        .faq-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+        }
+        
+        /* FILA DE CATEGORÍA (azul que ocupa 3 columnas) */
+        .category-row {
+            background-color: #0a4d68;
+            color: white;
+        }
+        
+        .category-cell {
+            padding: 22px 20px;
+            font-weight: 600;
+            font-size: 1.3rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .category-cell i {
+            color: #ffd166;
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+        
+        /* FILAS DE PREGUNTAS */
+        .faq-table td {
+            padding: 25px 20px;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+        
+        .faq-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .faq-table tr.question-row:hover {
+            background-color: #f8fcfd;
+        }
+        
+        /* ESTILOS PARA ENLACES EN LAS CELDAS */
+        .question-cell-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+        
+        .question-cell-link:hover {
+            transform: translateX(5px);
+        }
+        
+        .question-title {
+            color: #0a4d68;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .question-title i {
+            color: #ffd166;
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .question-desc {
+            color: #777;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 5px;
+        }
+        
+        .answer-cell-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+        
+        .answer-cell-link:hover {
+            transform: translateX(5px);
+        }
+        
+        .short-answer {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .image-cell-link {
+            display: block;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .preview-img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            border: 1px solid #eee;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .image-cell-link:hover .preview-img {
+            transform: scale(1.05);
+        }
+        
+        /* Indicador de que son enlaces */
+        .link-indicator {
+            color: #3498db;
+            font-size: 0.9rem;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .link-indicator i {
+            margin-right: 5px;
+        }
+        
+        /* Estilos del pie de página */
+        footer {
+            background-color: #0a4d68;
+            color: white;
+            padding: 50px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            color: #ffd166;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+        
+        .footer-column p, .footer-column a {
+            color: #e0f0f7;
+            margin-bottom: 12px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: #ffd166;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info i {
+            color: #ffd166;
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            margin-right: 20px;
+            font-size: 1.4rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #ffd166;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+            color: #b0d4e0;
+        }
+        
+        /* Estilos responsivos */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.7rem;
+            }
+            
+            .description h2, .faq-table-container h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-column {
+                min-width: 200px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background-color: #0a4d68;
+                transition: left 0.3s;
+                padding: 25px 0;
+                text-align: center;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 18px 0;
+            }
+            
+            .hero {
+                padding: 90px 0;
+                background-attachment: scroll;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.15rem;
+            }
+            
+            .description {
+                padding: 30px;
+            }
+            
+            .description h2, .faq-table-container h2 {
+                font-size: 1.8rem;
+            }
+            
+            .faq-table td {
+                padding: 18px 15px;
+            }
+            
+            .category-cell {
+                padding: 18px 15px;
+                font-size: 1.2rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            /* Ajustes para tabla en móviles */
+            .faq-table {
+                display: block;
+            }
+            
+            .faq-table tbody {
+                display: block;
+            }
+            
+            .faq-table tr {
+                display: block;
+                margin-bottom: 15px;
+                border: 1px solid #eee;
+                border-radius: 8px;
+                overflow: hidden;
+            }
+            
+            .category-row {
+                display: block;
+                margin-bottom: 5px;
+            }
+            
+            .category-cell {
+                display: block;
+                text-align: left;
+            }
+            
+            .faq-table td {
+                display: block;
+                border-bottom: none;
+                padding: 15px;
+            }
+            
+            .question-title {
+                font-size: 1.1rem;
+            }
+            
+            .preview-img {
+                height: 120px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .description h2, .faq-table-container h2 {
+                font-size: 1.6rem;
+            }
+            
+            .category-cell {
+                font-size: 1.1rem;
+            }
+            
+            .question-title {
+                font-size: 1rem;
+            }
+            
+            .short-answer {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-umbrella-beach"></i>
+                    Casa<span>Pando</span>
+                </a>
+                
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="https://www.airbnb.mx" target="_blank">Airbnb México</a></li>
+                    <li><a href="https://www.visitacapulco.com" target="_blank">Visita Acapulco</a></li>
+                    <li><a href="https://www.sectur.gob.mx" target="_blank">Turismo México</a></li>
+                    <li><a href="https://www.google.com/maps/place/Acapulco" target="_blank">Mapa de Acapulco</a></li>
+                    <li><a href="https://www.accuweather.com/es/mx/acapulco/233059/weather-forecast/233059" target="_blank">Clima Acapulco</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Encabezado con imagen de fondo -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Preguntas Frecuentes <br> Casa Pando Acapulco</h1>
+            <p>Encuentra respuestas rápidas a las preguntas más comunes de nuestros huéspedes. Tu comodidad y experiencia son nuestra prioridad.</p>
+            <a href="#faq" class="hero-btn">Ver Preguntas Frecuentes</a>
+        </div>
+    </section>
+
+    <!-- Sección descriptiva -->
+    <section class="description container" id="description">
+        <h2>Bienvenido a Casa Pando en Acapulco</h2>
+        <p>En <span class="highlight">Casa Pando</span> nos esforzamos por ofrecerte una experiencia inolvidable en una de las playas más hermosas de México. Esta sección de preguntas frecuentes está diseñada para resolver tus dudas antes y durante tu estancia.</p>
+        <p>A continuación encontrarás información organizada por categorías sobre <span class="highlight">check-in y check-out, amenidades, políticas de la casa, actividades locales</span> y <span class="highlight">recomendaciones de seguridad</span>. Cada pregunta incluye un enlace a información más detallada y recursos externos útiles para planificar tu viaje perfecto a Acapulco.</p>
+    </section>
+
+    <!-- Tabla de preguntas frecuentes - NUEVA ESTRUCTURA -->
+    <section class="container faq-table-container" id="faq">
+        <h2>Preguntas Frecuentes Organizadas</h2>
+        <table class="faq-table">
+            <tbody>
+                <!-- CATEGORÍA 1: Check-in / Check-out -->
+                <tr class="category-row">
+                    <td colspan="3" class="category-cell">
+                        <i class="fas fa-key"></i>
+                        Cómo llegar / Check-in / Check-out - Horarios, procedimientos y acceso
+                    </td>
+                </tr>
+                
+                <!-- PREGUNTA 1.1 -->
+                <tr class="question-row">
+                    <td>
+                        <a href="https://www.airbnb.com/help/article/136" target="_blank" class="question-cell-link">
+                            <div class="question-title">
+                                <i class="far fa-clock"></i>
+                                ¿Cuáles son los horarios de check-in y check-out?
+                            </div>
+                            <div class="question-desc">
+                                Información sobre los horarios establecidos para entrada y salida de la propiedad
+                            </div>
+                            <div class="link-indicator">
+                                <i class="fas fa-external-link-alt"></i> Haz clic para más detalles
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://www.airbnb.com/help/article/136" target="_blank" class="answer-cell-link">
+                            <div class="short-answer">
+                                Check-in a partir de las 3:00 PM y check-out antes de las 11:00 AM. Opciones flexibles disponibles con cargo adicional.
+                            </div>
+                            <div class="link-indicator">
+                                <i class="fas fa-external-link-alt"></i> Ver respuesta completa
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://www.airbnb.com/help/article/136" target="_blank" class="image-cell-link">
+                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Check-in en casa de playa" class="preview-img">
+                            <div class="link-indicator">
+                                <i class="fas fa-external-link-alt"></i> Ver imagen relacionada
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+                
+                <!-- PREGUNTA 1.2 -->
+                <tr class="question-row">
+                    <td>
+                        <a href="https://www.airbnb.com/help/article/125" target="_blank" class="question-cell-link">
+                            <div class="question-title">
+                                <i class="fas fa-key"></i>
+                                ¿Cómo obtengo las llaves o acceso a la propiedad?
+                            </div>
+                            <div class="question-desc">
+                                Proceso de acceso seguro a Casa Paraíso
+                            </div>
+                            <div class="link-indicator">
+                                <i class="fas fa-external-link-alt"></i> Haz clic para más detalles
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://www.airbnb.com/help/article/125" target="_blank" class="answer-cell-link">
+                            <div class="short-answer">
+                                Sistema de acceso con código digital. Recibirás el código 24 horas antes de tu llegada.
+                            </div>
+                            <div class="link-indicator">
+                                <i class="fas fa-external-link-alt"></i> Ver respuesta completa
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://www.airbnb.com/help/article/125" target="_blank" class="image-cell-link">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sistema de acceso digital" class="preview-img">
+                            <div class="link-indicator">
+                                <i class="fas fa-external-link-alt"></i> Ver imagen relacionada
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+                
+                <!-- CATEGORÍA 2: Amenidades y Servicios -->
+                <tr class="category-row">
+                    <td colspan="3" class="category-cell">
+                        <i class="fas fa-home"></i>
+                        Amenidades y Servicios - Lo que incluye tu estancia
+                    </td>
+                </tr>
+                
+                <!-- PREGUNTA 2.1 -->
+                <tr class="question-row">
+                    <td>
+                        <a href="https://www.airbnb.com/help/article/871" target="_blank" class="question-cell-link">
+                            <div class="question-title">
+                                <i class="fas fa-wifi"></i>
+                                ¿La casa tiene WiFi y aire acondicionado?
+                            </div>
+                            <div class="question-desc">
+                                Servicios básicos incluidos en la propiedad
+                            </div>
+                            <div class="link-indicator">
+                                <i class="fas fa-external-link-alt"></i> Haz clic para más detalles
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://www.airbnb.com/help/article/871" target="_blank" class="answer-cell-link">
+                            <div class="short-answer">
+                                Sí, incluimos WiFi de alta velocidad y aire acondicionado en todas las habitaciones.
+                            </div>
+                            <div class="link-indicator">
+                                <i class="fas fa-external-link-alt"></i> Ver respuesta completa
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://www.airbnb.com/help/article/871" target="_blank" class="image-cell-link">
+                            <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Amenidades de la casa" class="preview-img">
+                            <div class="link-indicator">
+                                <i class="fas fa-external-link-alt"></i> Ver imagen relacionada
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+                
+                <!-- PREGUNTA 2.2 -->
+                <tr class="question-row">
+                    <td>
+                        <a href="https://www.airbnb.com/help/article/873" target="_blank" class="question-cell-link">
+                            <div class="question-title">
+                                <i class="fas fa-swimming-pool"></i>
+                                ¿La propiedad cuenta con alberca o acceso directo a la playa?
+                            </div>
+                            <div class="question-desc">
+                                Información sobre áreas de recreación
+                            </div>
+                            <div class="link-indicator">
+                                <i class="fas fa-external-link-alt"></i> Haz clic para más detalles
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://www.airbnb.com/help/article/873" target="_blank" class="answer-cell-link">
+                            <div class="short-answer">
+                                Alberca privada incluida. A 5 minutos caminando de la playa principal de Acapulco.
+                            </div>
+                            <div class="link-indicator">
+                                <i class="fas fa-external-link-alt"></i> Ver respuesta completa
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://www.airbnb.com/help/article/873" target="_blank" class="image-cell-link">
+                            <img src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Alberca de la casa" class="preview-img">
+                            <div class="link-indicator">
+                                <i class="fas fa-external-link-alt"></i> Ver imagen relacionada
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+                
+                <!-- CATEGORÍA 3: Políticas de la Casa -->
+                <tr class="category-row">
+                    <td colspan="3" class="category-cell">
+                        <i class="fas fa-exclamation-circle"></i>
+                        Políticas de la Casa - Reglas y condiciones importantes
+                    </td>
+                </tr>
+                
+                <!-- PREGUNTA 3.1 -->
+                <tr class="question-row">
+                    <td>
+                        <a href="https://www.airbnb.com/help/article/2867" target="_blank" class="question-cell-link">
+                            <div class="question-title">
+                                <i class="fas fa-paw"></i>
+                                ¿Se permiten mascotas en la propiedad?
+                            </div>
+                            <div class="question-desc">
+                                Política sobre animales de compañía
+                            </div>
+                            <div class="link-indicator">
+                                <i class="fas fa-external-link-alt"></i> Haz clic para más detalles
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://www.airbnb.com/help/article/2867" target="_blank" class="answer-cell-link">
+                            <div class="short-answer">
+                                Solo mascotas pequeñas con autorización previa. Cargo adicional de $20 USD por noche.
+                            </div>
+                            <div class="link-indicator">
+                                <i class="fas fa-external-link-alt"></i> Ver respuesta completa
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://www.airbnb.com/help/article/2867" target="_blank" class="image-cell-link">
+                            <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Políticas de mascotas" class="preview-img">
+                            <div class="link-indicator">
+                                <i class="fas fa-external-link-alt"></i> Ver imagen relacionada
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+                
+                <!-- PREGUNTA 3.2 -->
+                <tr class="question-row">
+                    <td>
+                        <a href="https://www.airbnb.com/help/article/2853" target="_blank" class="question-cell-link">
+                            <div class="question-title">
+                                <i class="fas fa-ban"></i>
+                                ¿Qué políticas de cancelación aplican?
+                            </div>
+                            <div class="question-desc">
+                                Condiciones para cancelar tu reservación
+                            </div>
+                            <div class="link-indicator">
+                                <i class="fas fa-external-link-alt"></i> Haz clic para más detalles
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://www.airbnb.com/help/article/2853" target="_blank" class="answer-cell-link">
+                            <div class="short-answer">
+                                Reembolso del 100% hasta 30 días antes. 50% hasta 7 días antes. Consulta términos completos.
+                            </div>
+                            <div class="link-indicator">
+                                <i class="fas fa-external-link-alt"></i> Ver respuesta completa
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://www.airbnb.com/help/article/2853" target="_blank" class="image-cell-link">
+                            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Políticas de cancelación" class="preview-img">
+                            <div class="link-indicator">
+                                <i class="fas fa-external-link-alt"></i> Ver imagen relacionada
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+                
+                <!-- CATEGORÍA 4: Actividades y Recomendaciones -->
+                <tr class="category-row">
+                    <td colspan="3" class="category-cell">
+                        <i class="fas fa-umbrella-beach"></i>
+                        Actividades y Recomendaciones - Qué hacer en Acapulco
+                    </td>
+                </tr>
+                
+                <!-- PREGUNTA 4.1 -->
+                <tr class="question-row">
+                    <td>
+                        <a href="https://www.visitacapulco.com/clavados/" target="_blank" class="question-cell-link">
+                            <div class="question-title">
+                                <i class="fas fa-water"></i>
+                                ¿Dónde ver los famosos clavados de La Quebrada?
+                            </div>
+                            <div class="question-desc">
+                                Atracción turística imperdible en Acapulco
+                            </div>
+                            <div class="link-indicator">
+                                <i class="fas fa-external-link-alt"></i> Haz clic para más detalles
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://www.visitacapulco.com/clavados/" target="_blank" class="answer-cell-link">
+                            <div class="short-answer">
+                                En La Quebrada, a 15 minutos de la casa. Horarios: 1 PM, 7:30 PM, 8:30 PM, 9:30 PM y 10:30 PM.
+                            </div>
+                            <div class="link-indicator">
+                                <i class="fas fa-external-link-alt"></i> Ver respuesta completa
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://www.visitacapulco.com/clavados/" target="_blank" class="image-cell-link">
+                            <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Clavados La Quebrada" class="preview-img">
+                            <div class="link-indicator">
+                                <i class="fas fa-external-link-alt"></i> Ver imagen relacionada
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+                
+                <!-- PREGUNTA 4.2 -->
+                <tr class="question-row">
+                    <td>
+                        <a href="https://www.visitacapulco.com/transportacion/" target="_blank" class="question-cell-link">
+                            <div class="question-title">
+                                <i class="fas fa-car"></i>
+                                ¿Cómo moverse en Acapulco? Opciones de transporte
+                            </div>
+                            <div class="question-desc">
+                                Medios de transporte disponibles en la ciudad
+                            </div>
+                            <div class="link-indicator">
+                                <i class="fas fa-external-link-alt"></i> Haz clic para más detalles
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://www.visitacapulco.com/transportacion/" target="_blank" class="answer-cell-link">
+                            <div class="short-answer">
+                                Taxis, Uber, transporte público y renta de autos. Te recomendamos usar aplicaciones para mayor seguridad.
+                            </div>
+                            <div class="link-indicator">
+                                <i class="fas fa-external-link-alt"></i> Ver respuesta completa
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://www.visitacapulco.com/transportacion/" target="_blank" class="image-cell-link">
+                            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Transporte en Acapulco" class="preview-img">
+                            <div class="link-indicator">
+                                <i class="fas fa-external-link-alt"></i> Ver imagen relacionada
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Casa Pando Acapulco</h3>
+                    <p>Tu hogar lejos de casa en la hermosa bahía de Acapulco. Ofrecemos comodidad, seguridad y una experiencia inolvidable frente al mar.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://airbnb.com" target="_blank"><i class="fab fa-airbnb"></i></a>
+                        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto de Emergencia</h3>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <p>Anfitrión: 000 hasta que se te hinche el dedo</p>
+                            <p>Asistencia 24/7: +52 744 987 6543</p>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <p>casapandoacapulco@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <p>Punta Diamante, Acapulco, Gro.</p>
+                            <p>México 39850</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <a href="https://www.airbnb.com/help" target="_blank">Centro de Ayuda de Airbnb</a>
+                    <a href="https://www.visitacapulco.com" target="_blank">Guía Turística Oficial de Acapulco</a>
+                    <a href="https://www.salud.gob.mx" target="_blank">Recomendaciones de Salud en México</a>
+                    <a href="https://www.gob.mx/sre" target="_blank">Información para Extranjeros en México</a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 Casa Pando Acapulco. Todos los derechos reservados. | Este sitio es para fines informativos. Las políticas específicas pueden variar.</p>
+                <p>Las imágenes son ilustrativas. Para ver fotos reales de la propiedad, visita nuestro perfil de Airbnb.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript para el menú móvil
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.getElementById('nav-links').classList.toggle('active');
+        });
+        
+        // Cerrar menú móvil al hacer clic en un enlace
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('nav-links').classList.remove('active');
+            });
+        });
+        
+        // Agregar efecto suave al desplazamiento
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Añadir efecto de aparición suave a la tabla
+        document.addEventListener('DOMContentLoaded', function() {
+            const tableRows = document.querySelectorAll('.faq-table tbody tr');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            tableRows.forEach((row, index) => {
+                row.style.opacity = '0';
+                row.style.transform = 'translateY(20px)';
+                row.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                row.style.transitionDelay = (index * 0.1) + 's';
+                
+                observer.observe(row);
+            });
+        });
+    </script>
+</body>
+</html>
