@@ -657,6 +657,41 @@
                 flex-direction: column;
                 gap: 32px;
             }
+            
+            /* ===== SOLUCIÓN COMPLETA PARA DESTACAR CATEGORÍAS EN MÓVIL ===== */
+            .category-row {
+                margin-bottom: 8px !important;
+                border-radius: 12px !important;
+                overflow: hidden !important;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+                border: 2px solid var(--airbnb-red) !important;
+                background: linear-gradient(135deg, #FFF5F7 0%, #FFEBEF 100%) !important;
+            }
+            
+            .category-cell {
+                font-size: 19px !important;
+                font-weight: 700 !important;
+                color: var(--airbnb-dark) !important;
+                padding: 22px 20px !important;
+                text-align: center !important;
+                letter-spacing: -0.3px !important;
+                background: transparent !important;
+                border: none !important;
+                border-bottom: 2px solid var(--airbnb-red) !important;
+            }
+            
+            .category-cell i {
+                color: var(--airbnb-red) !important;
+                font-size: 20px !important;
+                margin-right: 12px !important;
+            }
+            
+            /* Separar visualmente las categorías de las preguntas */
+            .category-row + .question-row {
+                margin-top: 0 !important;
+                border-top-left-radius: 0 !important;
+                border-top-right-radius: 0 !important;
+            }
         }
         
         @media (max-width: 576px) {
@@ -686,8 +721,8 @@
             }
             
             .category-cell {
-                font-size: 15px;
-                padding: 16px;
+                font-size: 18px !important;
+                padding: 18px 16px !important;
             }
             
             .question-title {
