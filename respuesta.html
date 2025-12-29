@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Pando Acapulco - Respuesta a Pregunta</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Fuentes similares a Airbnb -->
+    <link href="https://fonts.googleapis.com/css2?family=Cereal:wght@400;500;600;700&family=Cereal-Book:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif&display=swap" rel="stylesheet">
+    <style>
+        /* ===== ESTILOS GENERALES AL ESTILO AIRBNB ===== */
+        :root {
+            --airbnb-red: #FF385C;
+            --airbnb-dark: #222222;
+            --airbnb-gray: #717171;
+            --airbnb-light-gray: #DDDDDD;
+            --airbnb-bg: #FFFFFF;
+            --airbnb-border: #EBEBEB;
+            --airbnb-hover: #F7F7F7;
+            --airbnb-text: #222222;
+            --airbnb-text-light: #717171;
+            --airbnb-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+            --airbnb-shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Circular', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
+            background-color: #FFFFFF;
+            color: var(--airbnb-text);
+            line-height: 1.5;
+            font-size: 14px;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cereal', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
+            font-weight: 600;
+            color: var(--airbnb-dark);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* ===== BARRA DE NAVEGACIÓN AL ESTILO AIRBNB ===== */
+        header {
+            background-color: #FFFFFF;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid var(--airbnb-border);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            height: 80px;
+        }
+        
+        .logo {
+            color: var(--airbnb-red);
+            font-size: 24px;
+            font-weight: 800;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo i {
+            margin-right: 8px;
+            color: var(--airbnb-red);
+        }
+        
+        .logo span {
+            color: var(--airbnb-red);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+        
+        .nav-links li {
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: var(--airbnb-gray);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.2s;
+            padding: 10px 0;
+        }
+        
+        .nav-links a:hover {
+            color: var(--airbnb-dark);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--airbnb-dark);
+            transition: width 0.2s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* ===== SELECTOR DE IDIOMA ===== */
+        .language-selector {
+            position: relative;
+            margin-left: 16px;
+        }
+        
+        .language-btn {
+            background: white;
+            border: 1px solid var(--airbnb-border);
+            border-radius: 20px;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--airbnb-dark);
+        }
+        
+        .language-btn:hover {
+            box-shadow: var(--airbnb-shadow-light);
+        }
+        
+        .language-btn i {
+            color: var(--airbnb-gray);
+        }
+        
+        .language-options {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--airbnb-shadow);
+            border: 1px solid var(--airbnb-border);
+            min-width: 140px;
+            margin-top: 8px;
+            display: none;
+            z-index: 1001;
+        }
+        
+        .language-options.active {
+            display: block;
+        }
+        
+        .language-option {
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .language-option:hover {
+            background-color: var(--airbnb-hover);
+        }
+        
+        .language-option.active {
+            color: var(--airbnb-red);
+            font-weight: 600;
+        }
+        
+        .language-option.active i {
+            color: var(--airbnb-red);
+        }
+        
+        .language-option i {
+            color: var(--airbnb-gray);
+            width: 20px;
+        }
+        
+        .menu-toggle {
+            display: none;
+            color: var(--airbnb-dark);
+            font-size: 1.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        
+        /* ===== CONTENIDO PRINCIPAL ===== */
+        .main-content {
+            padding: 60px 0 80px;
+        }
+        
+        /* Botón de regreso */
+        .back-button {
+            margin-bottom: 40px;
+        }
+        
+        .back-button a {
+            display: inline-flex;
+            align-items: center;
+            color: var(--airbnb-gray);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+        
+        .back-button a:hover {
+            color: var(--airbnb-red);
+        }
+        
+        .back-button i {
+            margin-right: 8px;
+            font-size: 14px;
+        }
+        
+        /* Sección de pregunta */
+        .question-section {
+            margin-bottom: 48px;
+        }
+        
+        .question-title {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .question-icon {
+            color: var(--airbnb-red);
+            margin-right: 12px;
+            font-size: 24px;
+        }
+        
+        .question-description {
+            font-size: 18px;
+            color: var(--airbnb-text-light);
+            line-height: 1.6;
+            margin-bottom: 32px;
+            padding-left: 36px; /* Para alinear con el icono */
+        }
+        
+        /* Sección de respuesta */
+        .answer-section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 48px;
+            box-shadow: var(--airbnb-shadow-light);
+            border: 1px solid var(--airbnb-border);
+        }
+        
+        .answer-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--airbnb-dark);
+            display: flex;
+            align-items: center;
+        }
+        
+        .answer-title i {
+            color: var(--airbnb-red);
+            margin-right: 12px;
+            font-size: 20px;
+        }
+        
+        .answer-content {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--airbnb-text);
+        }
+        
+        .answer-content p {
+            margin-bottom: 20px;
+        }
+        
+        .highlight {
+            color: var(--airbnb-red);
+            font-weight: 600;
+        }
+        
+        /* Sección de imagen */
+        .image-section {
+            margin-bottom: 48px;
+        }
+        
+        .image-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--airbnb-dark);
+            display: flex;
+            align-items: center;
+        }
+        
+        .image-title i {
+            color: var(--airbnb-red);
+            margin-right: 12px;
+            font-size: 20px;
+        }
+        
+        .image-description {
+            font-size: 15px;
+            color: var(--airbnb-text-light);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .featured-image {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: var(--airbnb-shadow);
+            transition: transform 0.3s;
+        }
+        
+        .featured-image:hover {
+            transform: scale(1.01);
+        }
+        
+        /* Sección de video */
+        .video-section {
+            margin-bottom: 48px;
+        }
+        
+        .video-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--airbnb-dark);
+            display: flex;
+            align-items: center;
+        }
+        
+        .video-title i {
+            color: var(--airbnb-red);
+            margin-right: 12px;
+            font-size: 20px;
+        }
+        
+        .video-description {
+            font-size: 15px;
+            color: var(--airbnb-text-light);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .video-container {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .video-preview {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            text-decoration: none;
+            color: inherit;
+            background-color: white;
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid var(--airbnb-border);
+            transition: all 0.2s;
+            box-shadow: var(--airbnb-shadow-light);
+        }
+        
+        .video-preview:hover {
+            box-shadow: var(--airbnb-shadow);
+            transform: translateY(-2px);
+            border-color: var(--airbnb-red);
+        }
+        
+        .video-thumbnail {
+            flex-shrink: 0;
+            width: 280px;
+            height: 160px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .video-play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--airbnb-red);
+            font-size: 20px;
+            transition: all 0.2s;
+        }
+        
+        .video-preview:hover .video-play-button {
+            background-color: var(--airbnb-red);
+            color: white;
+        }
+        
+        .video-info {
+            flex: 1;
+        }
+        
+        .video-info h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--airbnb-dark);
+            font-weight: 600;
+        }
+        
+        .video-info p {
+            font-size: 15px;
+            color: var(--airbnb-text-light);
+            line-height: 1.6;
+        }
+        
+        /* ===== PIE DE PÁGINA AL ESTILO AIRBNB ===== */
+        footer {
+            background-color: #F7F7F7;
+            border-top: 1px solid var(--airbnb-border);
+            padding: 48px 0 24px;
+            margin-top: 64px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-column h3 {
+            color: var(--airbnb-dark);
+            margin-bottom: 20px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .footer-column p {
+            color: var(--airbnb-text-light);
+            margin-bottom: 16px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .footer-column a {
+            color: var(--airbnb-text-light);
+            margin-bottom: 12px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 14px;
+        }
+        
+        .footer-column a:hover {
+            color: var(--airbnb-red);
+            text-decoration: underline;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+        
+        .contact-info i {
+            color: var(--airbnb-red);
+            margin-right: 12px;
+            margin-top: 2px;
+            font-size: 16px;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+            gap: 16px;
+        }
+        
+        .social-links a {
+            color: var(--airbnb-gray);
+            font-size: 18px;
+            transition: color 0.2s;
+        }
+        
+        .social-links a:hover {
+            color: var(--airbnb-red);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--airbnb-border);
+            font-size: 14px;
+            color: var(--airbnb-gray);
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .question-title {
+                font-size: 36px;
+            }
+            
+            .answer-section, .video-preview {
+                padding: 32px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background-color: white;
+                transition: left 0.3s;
+                padding: 24px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+                gap: 0;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 12px 0;
+            }
+            
+            .nav-links a {
+                padding: 12px 0;
+                font-size: 16px;
+            }
+            
+            .language-selector {
+                margin-left: 0;
+                margin-top: 16px;
+            }
+            
+            .language-options {
+                position: static;
+                margin-top: 8px;
+                box-shadow: none;
+                border: 1px solid var(--airbnb-border);
+            }
+            
+            .question-title {
+                font-size: 32px;
+            }
+            
+            .question-description {
+                font-size: 17px;
+                padding-left: 0;
+            }
+            
+            .video-preview {
+                flex-direction: column;
+            }
+            
+            .video-thumbnail {
+                width: 100%;
+                height: 200px;
+            }
+            
+            .answer-section, .video-preview {
+                padding: 24px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 32px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .question-title {
+                font-size: 28px;
+            }
+            
+            .question-description {
+                font-size: 16px;
+            }
+            
+            .answer-title, .image-title, .video-title {
+                font-size: 20px;
+            }
+            
+            .answer-content {
+                font-size: 15px;
+            }
+            
+            .answer-section, .video-preview {
+                padding: 20px;
+            }
+        }
+        
+        /* ===== ANIMACIONES AL ESTILO AIRBNB ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-umbrella-beach"></i>
+                    <span>Casa Pando <i class="fa-solid fa-paw"></i></span> 
+                  
+                </a>
+                
+                <button class="menu-toggle" id="mobile-menu" aria-label="Menú">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="https://www.airbnb.mx" target="_blank">Airbnb México</a></li>
+                    <li><a href="https://www.visitacapulco.com" target="_blank">Visita Acapulco</a></li>
+                    <li><a href="https://www.sectur.gob.mx" target="_blank">Turismo México</a></li>
+                    <li><a href="https://www.google.com/maps/place/Acapulco" target="_blank">Mapa de Acapulco</a></li>
+                    <li><a href="https://www.accuweather.com/es/mx/acapulco/233059/weather-forecast/233059" target="_blank">Clima Acapulco</a></li>
+                    
+                    <!-- Selector de idioma dentro del menú de navegación -->
+                    <li class="language-selector">
+                        <div class="language-btn" id="language-btn">
+                            <i class="fas fa-globe"></i>
+                            <span id="current-language">Español</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="language-options" id="language-options">
+                            <div class="language-option active" data-lang="es">
+                                <i class="fas fa-check"></i>
+                                <span>Español</span>
+                            </div>
+                            <div class="language-option" data-lang="en">
+                                <i class="fas fa-check"></i>
+                                <span>English</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="main-content container">
+        <!-- Botón de regreso -->
+        <div class="back-button fade-in">
+            <a href="index.html">
+                <i class="fas fa-arrow-left"></i>
+                <span id="back-text">Volver a todas las preguntas</span>
+            </a>
+        </div>
+        
+        <!-- Sección de la pregunta -->
+        <section class="question-section fade-in">
+            <h1 class="question-title">
+                <i class="far fa-clock question-icon"></i>
+                <span id="main-question">¿Cuáles son los horarios de check-in y check-out?</span>
+            </h1>
+            <p class="question-description" id="question-description">
+                Información detallada sobre los horarios establecidos para el check-in y check-out en Casa Pando, así como opciones disponibles para mayor flexibilidad.
+            </p>
+        </section>
+        
+        <!-- Sección de la respuesta -->
+        <section class="answer-section fade-in">
+            <h2 class="answer-title">
+                <i class="fas fa-check-circle"></i>
+                <span id="answer-title">Respuesta</span>
+            </h2>
+            <div class="answer-content" id="answer-content">
+                <p>En <span class="highlight">Casa Pando</span>, nuestros horarios estándar de check-in son a partir de las <strong>3:00 PM</strong> y el check-out debe realizarse antes de las <strong>11:00 AM</strong>. Estos horarios nos permiten preparar adecuadamente la propiedad para cada huésped y garantizar que todo esté en perfectas condiciones.</p>
+                
+                <p>Entendemos que los planes de viaje pueden variar, por lo que ofrecemos <span class="highlight">opciones flexibles</span> cuando es posible:</p>
+                
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <li><strong>Check-in temprano:</strong> Si llega antes de las 3:00 PM, podemos almacenar su equipaje de forma segura mientras la casa se prepara.</li>
+                    <li><strong>Check-out tardío:</strong> Dependiendo de la disponibilidad, podemos ofrecer una extensión hasta las 1:00 PM por un cargo adicional.</li>
+                    <li><strong>Entrega de llaves fuera de horario:</strong> Nuestro sistema de acceso con código digital permite el check-in a cualquier hora después de las 3:00 PM.</li>
+                </ul>
+                
+                <p>Para solicitar horarios especiales, le recomendamos que nos contacte con al menos <strong>48 horas de anticipación</strong> para que podamos organizar la logística necesaria. La disponibilidad de horarios flexibles está sujeta a la ocupación de la propiedad y puede requerir un cargo adicional.</p>
+                
+                <p>Al momento del check-out, agradecemos que deje la propiedad en condiciones razonables y nos notifique de cualquier incidente o daño que haya ocurrido durante su estadía.</p>
+            </div>
+        </section>
+        
+        <!-- Sección de la imagen -->
+        <section class="image-section fade-in">
+            <h2 class="image-title">
+                <i class="fas fa-image"></i>
+                <span id="image-title">Imagen de referencia</span>
+            </h2>
+            <p class="image-description" id="image-description">
+                Vista del área de entrada principal de Casa Pando, donde se realiza el proceso de check-in. Nuestra propiedad cuenta con un sistema de acceso digital para mayor comodidad y seguridad.
+            </p>
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Check-in en casa de playa" class="featured-image">
+        </section>
+        
+        <!-- Sección del video -->
+        <section class="video-section fade-in">
+            <h2 class="video-title">
+                <i class="fas fa-play-circle"></i>
+                <span id="video-title">Video de apoyo</span>
+            </h2>
+            <p class="video-description" id="video-description">
+                Este video muestra el proceso de check-in en Casa Pando y ofrece consejos útiles para que tu llegada sea lo más fluida posible.
+            </p>
+            
+            <div class="video-container">
+                <a href="https://www.youtube.com/watch?v=EXAMPLE_VIDEO_ID" target="_blank" class="video-preview">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Miniatura del video">
+                        <div class="video-play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 id="video-heading">Guía completa de check-in en Casa Pando Acapulco</h3>
+                        <p id="video-info-text">En este video te mostramos paso a paso cómo realizar el check-in en nuestra propiedad, incluyendo el uso del sistema de acceso digital, ubicación de las llaves y un recorrido por las áreas principales de la casa para que te familiarices rápidamente con el espacio.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column fade-in">
+                    <h3 id="footer-title-1">Casa Pando Acapulco</h3>
+                    <p id="footer-text-1">Tu hogar lejos de casa en la hermosa bahía de Acapulco. Ofrecemos comodidad, seguridad y una experiencia inolvidable frente al mar.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://airbnb.com" target="_blank" aria-label="Airbnb"><i class="fab fa-airbnb"></i></a>
+                        <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column fade-in">
+                    <h3 id="footer-title-2">Contacto</h3>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <p id="footer-contact-1">Anfitrión: 000 hasta que se te hinche el dedo</p>
+                            <p id="footer-contact-2">Asistencia 24/7: +52 744 987 6543</p>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <p id="footer-contact-3">casapandoacapulco@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <p id="footer-contact-4">Punta Diamante, Acapulco, Gro.</p>
+                            <p id="footer-contact-5">México 39850</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-column fade-in">
+                    <h3 id="footer-title-3">Enlaces rápidos</h3>
+                    <a href="index.html" id="footer-link-1">Preguntas Frecuentes</a>
+                    <a href="https://www.airbnb.com/help" target="_blank" id="footer-link-2">Centro de Ayuda de Airbnb</a>
+                    <a href="https://www.visitacapulco.com" target="_blank" id="footer-link-3">Guía Turística Oficial de Acapulco</a>
+                    <a href="https://www.gob.mx/sre" target="_blank" id="footer-link-4">Información para Extranjeros en México</a>
+                </div>
+            </div>
+            
+            <div class="copyright fade-in">
+                <p id="copyright-1">© 2023 Casa Pando Acapulco. Todos los derechos reservados.</p>
+                <p id="copyright-2">Las imágenes son ilustrativas. Para ver fotos reales de la propiedad, visita nuestro perfil de Airbnb.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript para el menú móvil
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.getElementById('nav-links').classList.toggle('active');
+            this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
+        });
+        
+        // Cerrar menú móvil al hacer clic en un enlace
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('nav-links').classList.remove('active');
+                document.getElementById('mobile-menu').setAttribute('aria-expanded', 'false');
+            });
+        });
+        
+        // Agregar efecto suave al desplazamiento
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animación de aparición al hacer scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeIn 0.5s ease-out forwards';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(element => {
+                element.style.opacity = '0';
+                observer.observe(element);
+            });
+            
+            // ===== FUNCIONALIDAD DEL SELECTOR DE IDIOMA =====
+            const languageBtn = document.getElementById('language-btn');
+            const languageOptions = document.getElementById('language-options');
+            const currentLanguage = document.getElementById('current-language');
+            const languageOptionsList = document.querySelectorAll('.language-option');
+            
+            // Mostrar/ocultar opciones de idioma
+            languageBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                languageOptions.classList.toggle('active');
+            });
+            
+            // Cerrar menú de idioma al hacer clic fuera
+            document.addEventListener('click', function() {
+                languageOptions.classList.remove('active');
+            });
+            
+            // Evitar que se cierre al hacer clic dentro del menú
+            languageOptions.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+            
+            // Cambiar idioma al seleccionar una opción
+            languageOptionsList.forEach(option => {
+                option.addEventListener('click', function() {
+                    const selectedLang = this.getAttribute('data-lang');
+                    
+                    // Actualizar visualmente la selección
+                    languageOptionsList.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Actualizar botón principal
+                    currentLanguage.textContent = selectedLang === 'es' ? 'Español' : 'English';
+                    
+                    // Cambiar el idioma de la página
+                    changeLanguage(selectedLang);
+                    
+                    // Cerrar el menú
+                    languageOptions.classList.remove('active');
+                });
+            });
+            
+            // Traducciones para la página de respuesta
+            const translations = {
+                es: {
+                    // Botón de idioma
+                    'current-language': 'Español',
+                    
+                    // Navegación
+                    'back-text': 'Volver a todas las preguntas',
+                    
+                    // Contenido de la pregunta
+                    'main-question': '¿Cuáles son los horarios de check-in y check-out?',
+                    'question-description': 'Información detallada sobre los horarios establecidos para el check-in y check-out en Casa Pando, así como opciones disponibles para mayor flexibilidad.',
+                    
+                    // Sección de respuesta
+                    'answer-title': 'Respuesta',
+                    'answer-content': `<p>En <span class="highlight">Casa Pando</span>, nuestros horarios estándar de check-in son a partir de las <strong>3:00 PM</strong> y el check-out debe realizarse antes de las <strong>11:00 AM</strong>. Estos horarios nos permiten preparar adecuadamente la propiedad para cada huésped y garantizar que todo esté en perfectas condiciones.</p>
+                
+                <p>Entendemos que los planes de viaje pueden variar, por lo que ofrecemos <span class="highlight">opciones flexibles</span> cuando es posible:</p>
+                
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <li><strong>Check-in temprano:</strong> Si llega antes de las 3:00 PM, podemos almacenar su equipaje de forma segura mientras la casa se prepara.</li>
+                    <li><strong>Check-out tardío:</strong> Dependiendo de la disponibilidad, podemos ofrecer una extensión hasta las 1:00 PM por un cargo adicional.</li>
+                    <li><strong>Entrega de llaves fuera de horario:</strong> Nuestro sistema de acceso con código digital permite el check-in a cualquier hora después de las 3:00 PM.</li>
+                </ul>
+                
+                <p>Para solicitar horarios especiales, le recomendamos que nos contacte con al menos <strong>48 horas de anticipación</strong> para que podamos organizar la logística necesaria. La disponibilidad de horarios flexibles está sujeta a la ocupación de la propiedad y puede requerir un cargo adicional.</p>
+                
+                <p>Al momento del check-out, agradecemos que deje la propiedad en condiciones razonables y nos notifique de cualquier incidente o daño que haya ocurrido durante su estadía.</p>`,
+                    
+                    // Sección de imagen
+                    'image-title': 'Imagen de referencia',
+                    'image-description': 'Vista del área de entrada principal de Casa Pando, donde se realiza el proceso de check-in. Nuestra propiedad cuenta con un sistema de acceso digital para mayor comodidad y seguridad.',
+                    
+                    // Sección de video
+                    'video-title': 'Video de apoyo',
+                    'video-description': 'Este video muestra el proceso de check-in en Casa Pando y ofrece consejos útiles para que tu llegada sea lo más fluida posible.',
+                    'video-heading': 'Guía completa de check-in en Casa Pando Acapulco',
+                    'video-info-text': 'En este video te mostramos paso a paso cómo realizar el check-in en nuestra propiedad, incluyendo el uso del sistema de acceso digital, ubicación de las llaves y un recorrido por las áreas principales de la casa para que te familiarices rápidamente con el espacio.',
+                    
+                    // Footer
+                    'footer-title-1': 'Casa Pando Acapulco',
+                    'footer-text-1': 'Tu hogar lejos de casa en la hermosa bahía de Acapulco. Ofrecemos comodidad, seguridad y una experiencia inolvidable frente al mar.',
+                    
+                    'footer-title-2': 'Contacto',
+                    'footer-contact-1': 'Anfitrión: 000 hasta que se te hinche el dedo',
+                    'footer-contact-2': 'Asistencia 24/7: +52 744 987 6543',
+                    'footer-contact-3': 'casapandoacapulco@gmail.com',
+                    'footer-contact-4': 'Punta Diamante, Acapulco, Gro.',
+                    'footer-contact-5': 'México 39850',
+                    
+                    'footer-title-3': 'Enlaces rápidos',
+                    'footer-link-1': 'Preguntas Frecuentes',
+                    'footer-link-2': 'Centro de Ayuda de Airbnb',
+                    'footer-link-3': 'Guía Turística Oficial de Acapulco',
+                    'footer-link-4': 'Información para Extranjeros en México',
+                    
+                    'copyright-1': '© 2023 Casa Pando Acapulco. Todos los derechos reservados.',
+                    'copyright-2': 'Las imágenes son ilustrativas. Para ver fotos reales de la propiedad, visita nuestro perfil de Airbnb.'
+                },
+                en: {
+                    // Botón de idioma
+                    'current-language': 'English',
+                    
+                    // Navegación
+                    'back-text': 'Back to all questions',
+                    
+                    // Contenido de la pregunta
+                    'main-question': 'What are the check-in and check-out times?',
+                    'question-description': 'Detailed information about established check-in and check-out times at Casa Pando, as well as available options for greater flexibility.',
+                    
+                    // Sección de respuesta
+                    'answer-title': 'Answer',
+                    'answer-content': `<p>At <span class="highlight">Casa Pando</span>, our standard check-in times are from <strong>3:00 PM</strong> and check-out must be done before <strong>11:00 AM</strong>. These schedules allow us to properly prepare the property for each guest and ensure everything is in perfect condition.</p>
+                
+                <p>We understand that travel plans can vary, so we offer <span class="highlight">flexible options</span> when possible:</p>
+                
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <li><strong>Early check-in:</strong> If you arrive before 3:00 PM, we can safely store your luggage while the house is being prepared.</li>
+                    <li><strong>Late check-out:</strong> Depending on availability, we can offer an extension until 1:00 PM for an additional charge.</li>
+                    <li><strong>After-hours key delivery:</strong> Our digital code access system allows check-in at any time after 3:00 PM.</li>
+                </ul>
+                
+                <p>To request special schedules, we recommend that you contact us at least <strong>48 hours in advance</strong> so we can organize the necessary logistics. The availability of flexible schedules is subject to property occupancy and may require an additional charge.</p>
+                
+                <p>At check-out time, we appreciate that you leave the property in reasonable condition and notify us of any incidents or damage that may have occurred during your stay.</p>`,
+                    
+                    // Sección de imagen
+                    'image-title': 'Reference Image',
+                    'image-description': 'View of the main entrance area of Casa Pando, where the check-in process takes place. Our property features a digital access system for greater convenience and security.',
+                    
+                    // Sección de video
+                    'video-title': 'Support Video',
+                    'video-description': 'This video shows the check-in process at Casa Pando and offers useful tips to make your arrival as smooth as possible.',
+                    'video-heading': 'Complete check-in guide at Casa Pando Acapulco',
+                    'video-info-text': 'In this video we show you step by step how to check-in at our property, including the use of the digital access system, key location and a tour of the main areas of the house so you can quickly familiarize yourself with the space.',
+                    
+                    // Footer
+                    'footer-title-1': 'Casa Pando Acapulco',
+                    'footer-text-1': 'Your home away from home on beautiful Acapulco Bay. We offer comfort, safety and an unforgettable seaside experience.',
+                    
+                    'footer-title-2': 'Contact',
+                    'footer-contact-1': 'Host: 000 until your finger swells',
+                    'footer-contact-2': '24/7 Assistance: +52 744 987 6543',
+                    'footer-contact-3': 'casapandoacapulco@gmail.com',
+                    'footer-contact-4': 'Punta Diamante, Acapulco, Gro.',
+                    'footer-contact-5': 'Mexico 39850',
+                    
+                    'footer-title-3': 'Quick Links',
+                    'footer-link-1': 'Frequently Asked Questions',
+                    'footer-link-2': 'Airbnb Help Center',
+                    'footer-link-3': 'Official Acapulco Tourist Guide',
+                    'footer-link-4': 'Information for Foreigners in Mexico',
+                    
+                    'copyright-1': '© 2023 Casa Pando Acapulco. All rights reserved.',
+                    'copyright-2': 'Images are illustrative. To see real photos of the property, visit our Airbnb profile.'
+                }
+            };
+            
+            // Función para cambiar el idioma
+            function changeLanguage(language) {
+                // Cambiar atributo lang del html
+                document.documentElement.setAttribute('lang', language);
+                
+                // Cambiar título de la página
+                const questionText = translations[language]['main-question'];
+                document.title = language === 'es' 
+                    ? `Casa Pando Acapulco - ${questionText.substring(0, 50)}...` 
+                    : `Casa Pando Acapulco - ${questionText.substring(0, 50)}...`;
+                
+                // Actualizar todos los textos traducibles
+                const elements = translations[language];
+                for (const id in elements) {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        if (id === 'answer-content') {
+                            element.innerHTML = elements[id];
+                        } else {
+                            element.innerHTML = elements[id];
+                        }
+                    }
+                }
+            }
+            
+            // Inicializar con español
+            changeLanguage('es');
+        });
+    </script>
+</body>
+</html>
