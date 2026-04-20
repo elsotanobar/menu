@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Cierre · El Sótano</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #f4f4f6; font-family: 'Inter', sans-serif; padding: 2rem 1rem; display: flex; justify-content: center; align-items: center; }
+        .checklist-container { max-width: 1200px; width: 100%; background: white; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); overflow: hidden; }
+        .pdf-area { padding: 2rem 2rem 1.5rem; background: white; }
+        .header-info { margin-bottom: 2rem; border-bottom: 1px solid #eaeaea; padding-bottom: 1rem; }
+        .title-section h1 { font-size: 1.6rem; font-weight: 700; color: #111; margin-bottom: 0.25rem; }
+        .title-section p { color: #666; font-size: 0.8rem; }
+        .back-link { display: inline-block; margin-bottom: 1rem; color: #d4a017; text-decoration: none; font-size: 0.85rem; }
+        .back-link:hover { text-decoration: underline; }
+        .user-fields { display: flex; flex-wrap: wrap; gap: 1.2rem; background: #fafafa; padding: 1.2rem 1.4rem; margin-bottom: 2rem; border: 1px solid #eee; }
+        .field-group { flex: 1; min-width: 200px; }
+        .field-group label { font-weight: 500; font-size: 0.7rem; text-transform: uppercase; color: #888; display: block; margin-bottom: 0.4rem; }
+        .field-group input { width: 100%; padding: 0.7rem 0; border: none; border-bottom: 1.5px solid #e0e0e0; background: transparent; font-family: 'Inter', sans-serif; }
+        .field-group input:focus { outline: none; border-bottom-color: #000; }
+        .tasks-table-wrapper { overflow-x: auto; margin: 1.5rem 0; }
+        .tasks-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        .tasks-table th { text-align: left; padding: 0.8rem 0; color: #888; font-weight: 500; font-size: 0.7rem; text-transform: uppercase; border-bottom: 1px solid #eee; }
+        .tasks-table td { padding: 1rem 0; border-bottom: 1px solid #f0f0f0; vertical-align: middle; }
+        .task-name { font-weight: 500; color: #222; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .help-icon { cursor: pointer; background: #eaeaea; border-radius: 50%; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; color: #666; transition: 0.2s; }
+        .help-icon:hover { background: #d4a017; color: white; }
+        .check-col { text-align: center; width: 70px; }
+        .datetime-col { font-size: 0.7rem; color: #999; font-family: monospace; }
+        .task-checkbox { width: 18px; height: 18px; accent-color: #000; cursor: pointer; }
+        .btn-generate { padding: 0 2rem 2rem 2rem; display: flex; justify-content: center; }
+        .generate-pdf { background: #000; border: none; padding: 0.8rem 1.8rem; font-size: 0.8rem; font-weight: 500; color: white; cursor: pointer; width: 100%; max-width: 320px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+        .generate-pdf:disabled { background: #ccc; cursor: not-allowed; opacity: 0.6; }
+        .generate-pdf:enabled:hover { background: #222; transform: translateY(-1px); }
+        .footer-status { font-size: 0.75rem; text-align: center; margin-top: 1.5rem; padding: 0.8rem; background: #fef9e6; border-left: 3px solid #f5a623; color: #8a6e3d; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; }
+        .modal-content { background: white; max-width: 450px; width: 90%; padding: 1.5rem; position: relative; }
+        .modal-content h3 { margin-bottom: 0.75rem; font-weight: 600; }
+        .modal-content p { color: #444; line-height: 1.5; white-space: pre-wrap; }
+        .close-modal { position: absolute; top: 12px; right: 15px; cursor: pointer; font-size: 1.2rem; color: #888; }
+        .close-modal:hover { color: #000; }
+        @media (max-width: 700px) { .pdf-area { padding: 1rem; } .task-name { font-size: 0.8rem; } }
+    </style>
+</head>
+<body>
+<div class="checklist-container">
+    <div class="pdf-area" id="pdfContent">
+        <a href="checklist.html" class="back-link">← Volver al inicio</a>
+        <div class="header-info">
+            <div class="title-section">
+                <h1>🌙 Cierre · El Sótano 🎸</h1>
+                <p>Checklist de cierre · Control de limpieza, apagado y seguridad</p>
+            </div>
+        </div>
+        <div class="user-fields">
+            <div class="field-group"><label>🎤 Responsable</label><input type="text" id="userName" placeholder="Nombre del encargado"></div>
+            <div class="field-group"><label>📅 Fecha</label><input type="date" id="userDate"></div>
+        </div>
+        <div class="tasks-table-wrapper"><table class="tasks-table" id="tasksTable"><thead><tr><th>Actividad</th><th class="check-col">Listo</th><th>⏱️ Hora del check</th></tr></thead><tbody id="tasksBody"></tbody></table></div>
+        <div class="footer-status" id="progressStatus">⚡ Completa todas las tareas para generar el PDF de evidencia.</div>
+    </div>
+    <div class="btn-generate"><button class="generate-pdf" id="generateBtn" disabled>📄 Generar evidencia (PDF)</button></div>
+</div>
+<div id="helpModal" class="modal"><div class="modal-content"><span class="close-modal">&times;</span><h3>📘 Ayuda</h3><p id="modalHelpText"></p></div></div>
+
+<script>
+    const TAREAS = [
+        { texto: "Primer aviso de cierre.", ayuda: "Una hora antes de la hora de cierre se da aviso a todas las mesas. Chicos, solo para avisarles. Cerramos en una hora. Gracias!!" },
+        { texto: "Limpieza de cocina.", ayuda: "Se guardan todos los perecederos en refrigerador. Se limpian todas las mesas. Se limpia freidora plancha y hornillas." },
+        { texto: "Refrigéradores completos", ayuda: "Se llenan lo refrigéradores con cerveza en existencia. Solo puede haber espacios vacíos para cerveza que no hay en existencia." },
+        { texto: "Limpieza de barra.", ayuda: "Se realiza la limpieza de cada area de barra. Se mueven todos los utensilios en barra para hacer limpieza completa. Se acomodan utensilios. Se entregan limpios todos los trastes. Se limpia y acomoda bajo barra. Se tiran botes notas y basura empleada durante la jornada. Se dejan remojando en jabon y cloro los trapos sucios. Los trapos limpios se extienden en la barra." },
+        { texto: "Limpieza de baños.", ayuda: "Se coloca jabon y cloro dentro de cada tasa de baño. Se tallan las tasas tapas y mingitorio, con el mismo jabon se talla el piso. Se toma la manguera en baño de mujeres y se enjuagan pisos tasas y mingitorio." },
+        { texto: "Barrido y trapeado de Salón.", ayuda: "Se levantan la mitad de las sillas y se procede a barrer todo el salon. Se retiran residuos de agua en cubo de trapeado. Se enjuaga el Mop. Se grega agua a 1/3 del cubo de trapeado, se agrega aromatizante y cloro. Se moja tantas veces sea necesario el mop sin exprimir y con él se moja todo el piso del salon. Concluido el mojado de salon se exprime el mop y se procede al secado del piso." },
+        { texto: "Musica al 65%", ayuda: "Media hora antes del cierre el volumen de la musica se coloca al 65%" },
+        { texto: "Segundo aviso de cierre.", ayuda: "Media hora antes de la hora de cierre se da aviso a todas las mesas. Chicos, solo para avisarles. Cerramos en media hora. Gracias!!" },
+        { texto: "Entrega de comandas para cierre.", ayuda: "Veinte minutos antes del cierre se entregan comandas a los clientes. Se guardan copias de comandas en barra." },
+        { texto: "Musica al 50%", ayuda: "Veinte minutos antes de la hora de cierre el volumen de la musica se coloca al 50%" },
+        { texto: "Cierre externo.", ayuda: "Quince minutos antes de la hora de cierre se guardan los toldos externos. Se guardan los anuncios externos del bar." },
+        { texto: "Apagado de pantallas", ayuda: "Diez minutos antes de la hora de cierrre se apagan las pantallas." },
+        { texto: "Ultimo aviso de cierre.", ayuda: "Diez minutos antes de la hora de cierre se avisa a los clientes. Chicos, si alguien gusta pasar al baño, los vamos a cerrar, limpiar y ya no se pueden ocupar. Se pregunta a las mesas si su pago será en efectivo o con tarjeta" },
+        { texto: "Musica al 20%", ayuda: "Diez minutos antes de la hora de cierre el volumen de la musica se coloca al 20%" },
+        { texto: "Puesta para llevar.", ayuda: "Cinco minutos antes del cierre se ponen en vasos para llevar las bebidas faltantes." },
+        { texto: "La musica se detiene.", ayuda: "A la hora de cierre la musica se apaga." },
+        { texto: "Apagado de todas las luminarias externas e internas", ayuda: "Se apagan focos externos. Se apagan lamparas externas. Se apagan focos de las escaleras. Se apagan guirnaldas. Se apagan luces generales de apagadores al fondo de barra. Se apagan luces de la cocina. Se apagan luces de baños. Solo no se apagan las luces del apagador a la entrada del bar." },
+        { texto: "Apagado de equipo de sonido", ayuda: "Se desconecta el equipo de sonido bajo barra." },
+        { texto: "Apagado de computadora.", ayuda: "Se apaga computadora." },
+        { texto: "Cuenta", ayuda: "Se realiza cuenta de cierre. No pueden haber clientes dentro del bar para iniciar la cuenta." },
+        { texto: "Captura de evidencia de limpieza.", ayuda: "Se toma y envía fotografias de limpieza. Baños, barra, cocina y piso de salón." }
+    ];
+
+    let tasks = TAREAS.map(t => ({ texto: t.texto, ayuda: t.ayuda, checked: false, timestamp: null }));
+    const tbody = document.getElementById('tasksBody');
+    const generateBtn = document.getElementById('generateBtn');
+    const userNameInput = document.getElementById('userName');
+    const userDateInput = document.getElementById('userDate');
+    const progressSpan = document.getElementById('progressStatus');
+    const modal = document.getElementById('helpModal');
+    const modalHelpText = document.getElementById('modalHelpText');
+    const closeModal = document.querySelector('.close-modal');
+
+    function setDefaultDate() { if (!userDateInput.value) { const d = new Date(); userDateInput.value = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; } }
+    function getCurrentFormattedDateTime() { const n = new Date(); return `${String(n.getDate()).padStart(2,'0')}/${String(n.getMonth()+1).padStart(2,'0')}/${n.getFullYear()} ${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}:${String(n.getSeconds()).padStart(2,'0')}`; }
+    function showHelp(ayuda) { modalHelpText.innerText = ayuda; modal.style.display = 'flex'; }
+    function updateTaskCheck(idx, isChecked) { if (isChecked) { tasks[idx].checked = true; tasks[idx].timestamp = getCurrentFormattedDateTime(); } else { tasks[idx].checked = false; tasks[idx].timestamp = null; } renderTasksTable(); checkAllCompleted(); }
+    function checkAllCompleted() { const all = tasks.every(t => t.checked); if (all) { generateBtn.disabled = false; progressSpan.innerHTML = '✅ ¡Excelente! Todas las tareas completadas. Puedes generar el PDF.'; progressSpan.style.background = "#e6f7e6"; progressSpan.style.color = "#2c6b2c"; } else { const pending = tasks.filter(t => !t.checked).length; generateBtn.disabled = true; progressSpan.innerHTML = `⚠️ Pendiente: ${pending} tarea(s) sin completar.`; progressSpan.style.background = "#fef9e6"; progressSpan.style.color = "#8a6e3d"; } }
+    function renderTasksTable() { tbody.innerHTML = ''; tasks.forEach((t, i) => { const row = document.createElement('tr'); row.innerHTML = `<td class="task-name">${t.texto} <span class="help-icon" data-ayuda="${t.ayuda.replace(/"/g, '&quot;')}">?</span></td><td class="check-col"><input type="checkbox" class="task-checkbox" ${t.checked ? 'checked' : ''}></td><td class="datetime-col">${t.checked && t.timestamp ? `✅ ${t.timestamp}` : '⏳ Pendiente'}</td>`; tbody.appendChild(row); const chk = row.querySelector('.task-checkbox'); chk.addEventListener('change', (e) => updateTaskCheck(i, e.target.checked)); }); document.querySelectorAll('.help-icon').forEach(icon => { icon.addEventListener('click', (e) => { e.stopPropagation(); showHelp(icon.getAttribute('data-ayuda')); }); }); }
+    async function generatePDF() { if (!tasks.every(t => t.checked)) { alert("Completa todas las tareas."); return; } const userName = userNameInput.value.trim(); if (!userName) { alert("Ingresa el responsable."); userNameInput.focus(); return; } const userDate = userDateInput.value; if (!userDate) { alert("Selecciona la fecha."); return; } generateBtn.innerHTML = "Generando..."; generateBtn.disabled = true; try { const container = document.createElement('div'); container.style.position = 'absolute'; container.style.left = '-9999px'; container.style.width = '800px'; container.style.padding = '30px'; container.style.background = 'white'; container.style.fontFamily = 'Inter, sans-serif'; let rows = ''; tasks.forEach((t, idx) => { rows += `<tr><td style="border-bottom:1px solid #eee;padding:8px;">${idx+1}. ${t.texto}</td><td style="border-bottom:1px solid #eee;padding:8px;text-align:center;">${t.checked ? '✓' : '✗'}</td><td style="border-bottom:1px solid #eee;padding:8px;">${t.timestamp || '—'}</td></tr>`; }); container.innerHTML = `<h1 style="margin-bottom:20px;">🌙 Cierre · El Sótano</h1><div style="background:#fafafa;padding:15px;margin:20px 0;"><p><strong>Responsable:</strong> ${userName}</p><p><strong>Fecha:</strong> ${userDate.split('-').reverse().join('/')}</p></div><table style="width:100%;border-collapse:collapse;">${rows}<td><div style="margin-top:25px;text-align:center;font-size:10px;color:#aaa;">Documento generado como evidencia · ${new Date().toLocaleString()}</div>`; document.body.appendChild(container); const canvas = await html2canvas(container, { scale: 2, backgroundColor: '#ffffff' }); document.body.removeChild(container); const { jsPDF } = window.jspdf; const imgData = canvas.toDataURL('image/png'); const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' }); const imgWidth = 210; const imgHeight = (canvas.height * imgWidth) / canvas.width; pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight); pdf.save(`cierre_${userName.replace(/\s+/g, '_')}_${userDate}.pdf`); alert("PDF generado."); } catch(e) { console.error(e); alert("Error al generar PDF."); } finally { generateBtn.innerHTML = "📄 Generar evidencia (PDF)"; if (tasks.every(t => t.checked)) generateBtn.disabled = false; } }
+    generateBtn.addEventListener('click', generatePDF);
+    closeModal.addEventListener('click', () => modal.style.display = 'none');
+    window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
+    setDefaultDate(); renderTasksTable(); checkAllCompleted();
+</script>
+</body>
+</html>
