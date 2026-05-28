@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>El Sótano - ROCK BAR</title>
     
-    <!-- Fuentes de Google Premium: Oswald para títulos y Roboto para cuerpo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
@@ -360,7 +359,6 @@
             .hero-tagline { font-size: 1.5rem; }
             .section-header { font-size: 2.5rem; margin-bottom: 40px; }
             
-            /* Ajuste de Navbar para que el logo y botones no se encimen */
             .navbar { 
                 flex-direction: column; 
                 padding: 10px 5px;
@@ -379,7 +377,6 @@
                 font-size: 0.95rem; 
             }
             
-            /* Ajuste del top sticky de las pestañas debido al navbar más alto */
             .tabs { 
                 top: 85px; 
                 padding: 10px; 
@@ -401,7 +398,6 @@
 </head>
 <body>
 
-    <!-- Navegación Fija -->
     <nav class="navbar" id="mainNavbar">
         <img src="logo.jpg" alt="El Sótano Logo" class="nav-logo">
         <div class="nav-links">
@@ -412,20 +408,19 @@
         </div>
     </nav>
 
-    <!-- Sección Hero -->
     <header class="hero" id="home">
         <h1 class="hero-title">EL SÓTANO</h1>
         <p class="hero-tagline">ROCK BAR</p>
         <a href="#seccion-menu" class="hero-scroll-down">↓</a>
     </header>
 
-    <!-- Sección Menú -->
     <section class="container" id="seccion-menu">
         <div class="text-center">
             <h2 class="section-header">NUESTRO MENÚ</h2>
         </div>
 
-        <!-- Pestañas de Navegación -->
+        <div id="ancla-menu" style="position: relative; top: -100px; visibility: hidden;"></div>
+
         <div class="tabs" id="menuTabs">
             <button class="tablink active" onclick="openMenu(event, 'Cerveza')" id="defaultOpen">Cerveza</button>
             <button class="tablink" onclick="openMenu(event, 'Bebidas')">Bebidas</button>
@@ -433,7 +428,6 @@
             <button class="tablink" onclick="openMenu(event, 'Promociones')">Promociones</button>
         </div>
 
-        <!-- CATEGORÍA: CERVEZA -->
         <div id="Cerveza" class="menu-content" style="display:block;">
             <h3 class="menu-category-title">Nuestras Cervezas</h3>
             <div class="menu-grid">
@@ -547,294 +541,3 @@
                         <div class="card-brand-tags">
                             <span class="brand-tag tag-bohemia-oscura">Bohemia Oscura</span>
                             <span class="brand-tag tag-bohemia-clara">Bohemia Clara</span>
-                        </div>
-                        <span class="card-price">$255.00</span>
-                    </div>
-                    <p class="card-desc">CUBETA (6 Piezas)</p>
-                </div>
-                <div class="menu-card">
-                    <div class="card-header">
-                        <div class="card-brand-tags">
-                            <span class="brand-tag tag-heineken">Heineken</span>
-                        </div>
-                        <span class="card-price">$45.00</span>
-                    </div>
-                    <p class="card-desc">AMPOLLETA</p>
-                </div>
-                <div class="menu-card">
-                    <div class="card-header">
-                        <div class="card-brand-tags">
-                            <span class="brand-tag tag-heineken">Heineken</span>
-                        </div>
-                        <span class="card-price">$255.00</span>
-                    </div>
-                    <p class="card-desc">CUBETA (6 Piezas)</p>
-                </div>
-                <div class="menu-card">
-                    <div class="card-header">
-                        <div class="card-brand-tags">
-                            <span class="brand-tag tag-heineken">Heineken</span>
-                        </div>
-                        <span class="card-price">$129.00</span>
-                    </div>
-                    <p class="card-desc">CAGUAMÓN</p>
-                </div>
-                <div class="menu-card">
-                    <div class="card-header">
-                        <div class="card-brand-tags">
-                            <span class="brand-tag tag-ultra">Ultra</span>
-                        </div>
-                        <span class="card-price">$45.00</span>
-                    </div>
-                    <p class="card-desc">AMPOLLETA</p>
-                </div>
-                <div class="menu-card">
-                    <div class="card-header">
-                        <div class="card-brand-tags">
-                            <span class="brand-tag tag-ultra">Ultra</span>
-                        </div>
-                        <span class="card-price">$255.00</span>
-                    </div>
-                    <p class="card-desc">CUBETA (6 Piezas)</p>
-                </div>
-            </div>
-
-            <h3 class="menu-category-title">Tarros Preparados</h3>
-            <div class="menu-grid">
-                <div class="menu-card premium-coctel">
-                    <div class="card-header"><span class="card-title">Chamoy (Grande/Chico)</span><span class="card-price">$23.00 / $17.00</span></div>
-                    <p class="card-subtext">(preparado de la casa, sal, limón)</p>
-                </div>
-                <div class="menu-card premium-coctel">
-                    <div class="card-header"><span class="card-title">Cubano (Grande/Chico)</span><span class="card-price">$20.00 / $15.00</span></div>
-                    <p class="card-subtext">(sal, piquín, limón, veneno)</p>
-                </div>
-                <div class="menu-card premium-coctel">
-                    <div class="card-header"><span class="card-title">Clamato (Grande/Chico)</span><span class="card-price">$35.00 / $25.00</span></div>
-                    <p class="card-subtext">(escarchado con piquín, clamato, veneno, pimienta, limón)</p>
-                </div>
-                <div class="menu-card">
-                    <div class="card-header"><span class="card-title">Michelado (Grande/Chico)</span><span class="card-price">$15.00 / $12.00</span></div>
-                    <p class="card-subtext">(sal, limón)</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- CATEGORÍA: BEBIDAS -->
-        <div id="Bebidas" class="menu-content">
-            
-            <h3 class="menu-category-title">Litros</h3>
-            <div class="menu-grid">
-                <div class="menu-card premium-coctel">
-                    <div class="card-header"><span class="card-title">Mojitos</span><span class="card-price">$150.00</span></div>
-                    <p class="card-subtext">(Tradicional, Jamaica, Maracuyá, Frutos Rojos)</p>
-                </div>
-                <div class="menu-card premium-coctel">
-                    <div class="card-header"><span class="card-title">Gin</span><span class="card-price">$150.00</span></div>
-                    <p class="card-subtext">(Frutos Rojos, Romero, Pepino, Cítricos)</p>
-                </div>
-                <div class="menu-card premium-coctel">
-                    <div class="card-header"><span class="card-title">Azulitos</span><span class="card-price">$120.00</span></div>
-                </div>
-            </div>
-
-            <h3 class="menu-category-title">Tragos Coquetos</h3>
-            <div class="menu-grid">
-                <div class="menu-card premium-coctel">
-                    <div class="card-header"><span class="card-title">Mezcalitas</span><span class="card-price">$79.00</span></div>
-                    <p class="card-subtext">(Limón, Jamaica, Maracuyá, Frutos Rojos, Mango)</p>
-                </div>
-                <div class="menu-card premium-coctel">
-                    <div class="card-header"><span class="card-title">Bomba</span><span class="card-price">$120.00</span></div>
-                    <p class="card-subtext">(Cerveza, Jager)</p>
-                </div>
-                <div class="menu-card premium-coctel">
-                    <div class="card-header"><span class="card-title">Perlas Negras</span><span class="card-price">$120.00</span></div>
-                    <p class="card-subtext">(Jager, Boost)</p>
-                </div>
-            </div>
-
-            <h3 class="menu-category-title">Coctelería</h3>
-            <div class="menu-grid">
-                <div class="menu-card premium-coctel">
-                    <div class="card-header"><span class="card-title">Margarita Frozen</span><span class="card-price">$119.00</span></div>
-                    <p class="card-subtext">(tequila, sal, limon)</p>
-                </div>
-                <div class="menu-card premium-coctel">
-                    <div class="card-header"><span class="card-title">Sangría</span><span class="card-price">$109.00</span></div>
-                    <p class="card-subtext">(vodka o whiskey, vino, limón)</p>
-                </div>
-                <div class="menu-card premium-coctel">
-                    <div class="card-header"><span class="card-title">Mojito</span><span class="card-price">$119.00</span></div>
-                    <p class="card-subtext">(ron, hierbabuena, limón, agua mineral)</p>
-                </div>
-                <div class="menu-card premium-coctel">
-                    <div class="card-header"><span class="card-title">Piña Colada Frozen</span><span class="card-price">$119.00</span></div>
-                    <p class="card-subtext">(ron o brandy, crema de coco, jugo de piña)</p>
-                </div>
-                <div class="menu-card premium-coctel">
-                    <div class="card-header"><span class="card-title">Chamorada Frozen</span><span class="card-price">$119.00</span></div>
-                    <p class="card-subtext">(tequila o mezcal, jarabe de tamarindo, limón)</p>
-                </div>
-                <div class="menu-card">
-                    <div class="card-header"><span class="card-title">Bull</span><span class="card-price">$119.00</span></div>
-                    <p class="card-subtext">(Ron añejo, un toque de limón, cerveza)</p>
-                </div>
-                <div class="menu-card">
-                    <div class="card-header"><span class="card-title">Pitufo Frozen</span><span class="card-price">$119.00</span></div>
-                    <p class="card-subtext">(vodka o ron, crema de coco, curazao)</p>
-                </div>
-                <div class="menu-card">
-                    <div class="card-header"><span class="card-title">Paloma</span><span class="card-price">$119.00</span></div>
-                    <p class="card-subtext">(tequila, refresco de toronja, jugo de limón)</p>
-                </div>
-                <div class="menu-card">
-                    <div class="card-header"><span class="card-title">Tom Colins</span><span class="card-price">$119.00</span></div>
-                    <p class="card-subtext">(ginebra o whisky, agua mineral, limón)</p>
-                </div>
-            </div>
-
-            <h3 class="menu-category-title">Licores por Copa</h3>
-            <div class="licor-list">
-                <div class="licor-list-item"><span class="licor-name">Whisky Red Label</span><span class="licor-price">$89.00</span></div>
-                <div class="licor-list-item"><span class="licor-name">Whisky Jack Daniels</span><span class="licor-price">$105.00</span></div>
-                <div class="licor-list-item"><span class="licor-name">Whisky Black Label</span><span class="licor-price">$153.00</span></div>
-                <div class="licor-list-item"><span class="licor-name">Ginebra Bombay Sapphire</span><span class="licor-price">$99.00</span></div>
-                <div class="licor-list-item"><span class="licor-name">Vodka Wiborowa</span><span class="licor-price">$79.00</span></div>
-                <div class="licor-list-item"><span class="licor-name">Vodka Absolute Azul</span><span class="licor-price">$89.00</span></div>
-                <div class="licor-list-item"><span class="licor-name">Ron Bacardi Blanco o Añejo</span><span class="licor-price">$89.00</span></div>
-                <div class="licor-list-item"><span class="licor-name">Ron Kraken Blanco o Añejo</span><span class="licor-price">$99.00</span></div>
-                <div class="licor-list-item"><span class="licor-name">Ron Capitán Morgan</span><span class="licor-price">$89.00</span></div>
-                <div class="licor-list-item"><span class="licor-name">Tequila Jose Cuervo Especial</span><span class="licor-price">$79.00</span></div>
-                <div class="licor-list-item"><span class="licor-name">Tequila Jose Cuervo Tradicional</span><span class="licor-price">$89.00</span></div>
-                <div class="licor-list-item"><span class="licor-name">Tequila Centenario</span><span class="licor-price">$89.00</span></div>
-                <div class="licor-list-item"><span class="licor-name">Tequila Don Julio Reposado</span><span class="licor-price">$129.00</span></div>
-                <div class="licor-list-item"><span class="licor-name">Tequila Don Julio 70 Cristalino</span><span class="licor-price">$149.00</span></div>
-                <div class="licor-list-item"><span class="licor-name">Mezcal 400 Conejos</span><span class="licor-price">$119.00</span></div>
-                <div class="licor-list-item"><span class="licor-name">Brandy Don Pedro</span><span class="licor-price">$89.00</span></div>
-            </div>
-
-            <h3 class="menu-category-title">Sin Alcohol & Extras</h3>
-            <div class="menu-grid">
-                <div class="menu-card"><div class="card-header"><span class="card-title">Conga</span><span class="card-price">$49.00</span></div><p class="card-subtext">(Jugos de Toronja, Naranja, Piña y Limón)</p></div>
-                <div class="menu-card"><div class="card-header"><span class="card-title">Limonada, Piñada, Naranjada</span><span class="card-price">$49.00</span></div></div>
-                <div class="menu-card"><div class="card-header"><span class="card-title">Refrescos 600</span><span class="card-price">$39.00</span></div></div>
-                <div class="menu-card"><div class="card-header"><span class="card-title">Agua Embotellada 355ml</span><span class="card-price">$12.00</span></div></div>
-                <div class="menu-card"><div class="card-header"><span class="card-title">*servicio extra*</span><span class="card-price">$35.00</span></div></div>
-                <div class="menu-card"><div class="card-header"><span class="card-title">Orden de limones extra</span><span class="card-price">$5.00</span></div></div>
-            </div>
-        </div>
-
-        <!-- CATEGORÍA: ALIMENTOS -->
-        <div id="Alimentos" class="menu-content">
-            <h3 class="menu-category-title">Snacks Rockeros</h3>
-            <div class="menu-grid">
-                <div class="menu-card premium-coctel"><div class="card-header"><span class="card-title">Papas a la Francesa</span><span class="card-price">$99.00</span></div></div>
-                <div class="menu-card premium-coctel"><div class="card-header"><span class="card-title">Costillas</span><span class="card-price">$119.00</span></div></div>
-                <div class="menu-card premium-coctel"><div class="card-header"><span class="card-title">Nachos con Carne</span><span class="card-price">$119.00</span></div></div>
-                <div class="menu-card"><div class="card-header"><span class="card-title">Nachos Sencillos</span><span class="card-price">$75.00</span></div></div>
-                <div class="menu-card"><div class="card-header"><span class="card-title">Botana</span><span class="card-price">$10.00</span></div><p class="card-subtext">(frituras de trigo o Palomitas)</p></div>
-            </div>
-        </div>
-
-        <!-- CATEGORÍA: PROMOCIONES -->
-        <div id="Promociones" class="menu-content">
-            <h3 class="menu-category-title">Especiales Clandestinos</h3>
-            <div class="menu-grid">
-                <div class="menu-card promo-principal">
-                    <div class="card-header">
-                        <span class="card-title" style="color: var(--warm-amber); font-size: 2rem;">2 LITROS DE CERVEZA</span>
-                        <span class="card-price" style="font-size: 2rem;">$190.00</span>
-                    </div>
-                    <p class="card-desc">PROMOCION 2 LITROS DE CERVEZA X $190.00</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Horarios y Facebook -->
-    <section class="container" id="about" style="max-width: 100%; padding-top: 60px;">
-        <div class="text-center container" style="padding-bottom: 20px;">
-            <h2 class="section-header">NUESTROS HORARIOS</h2>
-            <div class="schedule-grid">
-                <div>
-                    <p><strong>Lunes:</strong> 5:00pm - 00:00</p>
-                    <p><strong>Martes:</strong> 5:00pm - 00:00</p>
-                    <p><strong>Miércoles:</strong> 5:00pm - 00:00</p>
-                    <p><strong>Jueves:</strong> 5:00pm - 00:00</p>
-                </div>
-                <div>
-                    <p><strong style="color: var(--neon-red);">Viernes:</strong> 5:00pm - 2:00am</p>
-                    <p><strong style="color: var(--neon-red);">Sábado:</strong> 5:00pm - 1:00am</p>
-                    <p><strong>Domingo:</strong> 5:00pm - 00:00</p>
-                </div>
-            </div>
-            
-            <div class="fb-section container pt-0">
-                <a href="https://www.facebook.com/ElSotano.BarSnack/" target="_blank" class="fb-custom-btn">
-                    <svg viewBox="0 0 320 512" width="28" height="28">
-                        <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/>
-                    </svg>
-                    Síguenos en Facebook
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Ubicación -->
-    <section class="container" id="myMap">
-        <div class="text-center">
-            <h2 class="section-header">NUESTRA UBICACIÓN</h2>
-        </div>
-        <div class="location-grid container pt-0">
-            <div class="address-box">
-                <p style="font-size: 1.4rem; color: var(--text-off-white); margin-bottom: 10px;">Insurgentes Centro No.15</p>
-                <p style="color: var(--text-muted);">Colonia San Rafael, Ciudad de México, CP 06470</p>
-            </div>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.381054510514!2d-99.15839148514412!3d19.439131045509118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f8d1e5085e4d%3A0x34e26c4a6dd4de0b!2sEl%20S%C3%B3tano!5e0!3m2!1ses-419!2smx!4v1600465346591!5m2!1ses-419!2smx" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>ROCK BAR | Powered by <a href="https://www.facebook.com/ElSotano.BarSnack/" target="_blank">El Sótano Bar</a> | © 2026</p>
-    </footer>
-
-    <!-- Script Funcionalidad Pestañas -->
-    <script>
-        function openMenu(evt, menuName) {
-            var i, x, tablinks;
-            
-            // Ocultar contenidos y limpiar clases
-            x = document.getElementsByClassName("menu-content");
-            for (i = 0; i < x.length; i++) { x[i].style.display = "none"; }
-            tablinks = document.getElementsByClassName("tablink");
-            for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
-            
-            // Mostrar contenido activo
-            document.getElementById(menuName).style.display = "block";
-            evt.currentTarget.className += " active";
-
-            // Solución de UX: Scrollear hacia arriba si fue un clic del usuario (isTrusted)
-            if (evt.isTrusted) {
-                var tabsContainer = document.getElementById('menuTabs');
-                var navbarHeight = document.getElementById('mainNavbar').offsetHeight;
-                
-                // Calcula la posición Y exacta del contenedor de pestañas
-                var topPos = tabsContainer.getBoundingClientRect().top + window.scrollY;
-                
-                // Hace un scroll suave descontando el alto de la barra de navegación para que no lo cubra
-                window.scrollTo({
-                    top: topPos - navbarHeight,
-                    behavior: 'smooth'
-                });
-            }
-        }
-        
-        // Simular clic inicial (isTrusted será falso, por lo que no scrolleará de golpe)
-        document.getElementById("defaultOpen").click();
-    </script>
-</body>
-</html>
