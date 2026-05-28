@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- VARIABLES DE TEMA SPEAKEASY --- */
         :root {
             --bg-deep-black: #080808;
             --surface-dark-grey: #121212;
@@ -19,8 +18,6 @@
             --neon-red: #ff3c3c; 
             --warm-amber: #e6b377; 
             --metal-grey: #444444;
-            
-            /* Colores Temáticos de Cervezas */
             --color-indio: #008080;
             --color-tecate: #d32f2f;
             --color-xx-ambar: #8b5a2b;
@@ -31,513 +28,106 @@
             --color-ultra: #1a237e;
         }
 
-        /* --- ESTILOS GENERALES Y ANIMACIONES --- */
-        body, html {
-            height: 100%;
-            margin: 0;
-            background-color: var(--bg-deep-black);
-            color: var(--text-off-white);
-            font-family: 'Roboto', sans-serif;
-            scroll-behavior: smooth;
-        }
-        h1, h2, h3, h4, .nav-links a, .tablink {
-            font-family: 'Oswald', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 0;
-        }
-
-        @keyframes neon-flicker {
-            0%, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%, 100% {
-                text-shadow: 
-                    0 0 7px rgba(255, 60, 60, 0.7),
-                    0 0 10px rgba(255, 60, 60, 0.5),
-                    0 0 21px rgba(255, 60, 60, 0.3),
-                    0 0 42px rgba(255, 60, 60, 0.2);
-            }
-            15% {
-                text-shadow: 
-                    0 0 1px rgba(255, 60, 60, 0.5),
-                    0 0 3px rgba(255, 60, 60, 0.3);
-            }
-        }
-
-        /* --- NAVEGACIÓN FIJA --- */
+        body, html { margin: 0; background-color: var(--bg-deep-black); color: var(--text-off-white); font-family: 'Roboto', sans-serif; scroll-behavior: smooth; }
+        
+        /* Navbar mejorado */
         .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: rgba(8, 8, 8, 0.95);
-            padding: 10px 0;
-            z-index: 1000;
-            border-bottom: 2px solid var(--metal-grey);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-sizing: border-box;
+            position: fixed; top: 0; width: 100%; background: #000; padding: 15px 0; z-index: 2000;
+            display: flex; justify-content: center; align-items: center; border-bottom: 2px solid var(--neon-red);
         }
-        .nav-logo { height: 40px; margin-right: 20px; }
-        .nav-links { display: flex; gap: 30px; }
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s, text-shadow 0.3s;
-        }
-        .nav-links a:hover {
-            color: var(--text-off-white);
-            text-shadow: 0 0 5px var(--neon-red);
-        }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { color: var(--text-off-white); text-decoration: none; font-family: 'Oswald'; font-size: 1.1rem; }
 
-        /* --- SECCIÓN HERO --- */
-        .hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("redesign-bar.jpg");
-            background-position: center;
-            background-size: cover;
-            background-attachment: fixed;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-        }
-        .hero-title {
-            font-size: 8rem;
-            color: var(--neon-red);
-            text-shadow: 0 0 7px rgba(255, 60, 60, 0.7);
-            animation: neon-flicker 5s infinite;
-        }
-        .hero-tagline {
-            font-size: 2.2rem;
-            font-weight: bold;
-            color: var(--text-off-white);
-            margin-top: -10px;
-            font-family: 'Oswald', sans-serif;
-            letter-spacing: 4px;
-        }
-        .hero-scroll-down {
-            position: absolute;
-            bottom: 30px;
-            font-size: 2rem;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .hero-scroll-down:hover { color: var(--warm-amber); }
-
-        /* --- CONTENEDORES Y TÍTULOS --- */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 100px 20px;
-            box-sizing: border-box;
-        }
-        .text-center { 
-            text-align: center; 
-            width: 100%;
-        }
-        .section-header {
-            font-size: 4rem;
-            color: var(--text-off-white);
-            margin: 0 auto 60px auto; 
-            position: relative;
-            display: inline-block;
-        }
-        .section-header::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 10%;
-            width: 80%;
-            height: 3px;
-            background-color: var(--warm-amber);
-            box-shadow: 0 0 5px var(--warm-amber);
-        }
-
-        /* --- PESTAÑAS DEL MENÚ --- */
-        .tabs {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 50px;
-            position: sticky;
-            top: 60px; /* Ajuste por defecto */
-            z-index: 100;
-            background-color: rgba(8, 8, 8, 0.95);
-            padding: 15px 0;
-            border-bottom: 2px solid var(--metal-grey);
-            box-sizing: border-box;
-        }
-        .tablink {
-            background-color: transparent;
-            color: var(--text-muted);
-            border: 2px solid var(--metal-grey);
-            padding: 15px 30px;
-            cursor: pointer;
-            font-size: 1.3rem;
-            transition: all 0.3s;
-            border-radius: 5px;
-        }
-        .tablink:hover, .tablink.active {
-            color: var(--text-off-white);
-            border-color: var(--neon-red);
-            box-shadow: 0 0 15px var(--neon-red);
-        }
-        .menu-content { display: none; animation: fadeIn 0.5s; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        /* --- CONFIGURACIÓN DEL MENÚ Y TARJETAS --- */
-        .menu-category-title {
-            font-size: 2.5rem;
-            color: var(--warm-amber);
-            margin: 60px 0 30px 0;
-            text-shadow: 0 0 5px var(--warm-amber);
-            border-bottom: 1px solid var(--metal-grey);
-            padding-bottom: 10px;
-        }
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
-        }
-        .menu-card {
-            background-color: var(--surface-dark-grey);
-            border: 1px solid var(--metal-grey);
-            border-radius: 10px;
-            padding: 25px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .menu-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--warm-amber);
-            box-shadow: 0 8px 25px rgba(230, 179, 119, 0.15);
-        }
+        .hero { height: 100vh; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("redesign-bar.jpg"); background-size: cover; display: flex; flex-direction: column; justify-content: center; align-items: center; }
         
-        .menu-card.promo-principal {
-            grid-column: 1 / -1; 
-            background-color: #1a0d0d;
-            border: 2px solid var(--neon-red);
-            box-shadow: 0 0 20px rgba(255, 60, 60, 0.2);
-        }
-        .menu-card.promo-principal:hover {
-            box-shadow: 0 0 30px rgba(255, 60, 60, 0.4);
-            border-color: var(--neon-red);
-        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 100px 20px; }
+        .section-header { font-family: 'Oswald'; font-size: 3rem; text-align: center; color: var(--warm-amber); margin-bottom: 40px; }
 
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .card-brand-tags {
-            display: flex;
-            gap: 5px;
-            flex-wrap: wrap;
-        }
-        .brand-tag {
-            padding: 5px 12px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            border-radius: 20px;
-            color: #fff;
-            text-transform: uppercase;
-            font-family: 'Oswald', sans-serif;
-            letter-spacing: 1px;
-        }
+        /* Pestañas */
+        .tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
+        .tablink { background: var(--surface-dark-grey); color: white; border: 1px solid #444; padding: 10px 20px; cursor: pointer; font-family: 'Oswald'; }
+        .tablink.active { border-color: var(--neon-red); color: var(--neon-red); }
+        .menu-content { display: none; }
+
+        /* Tarjetas */
+        .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .menu-card { background: var(--surface-dark-grey); padding: 15px; border-left: 3px solid var(--warm-amber); }
+        .card-price { color: var(--warm-amber); font-weight: bold; }
         
-        .tag-indio { background-color: var(--color-indio); }
-        .tag-tecate { background-color: var(--color-tecate); }
-        .tag-xx-ambar { background-color: var(--color-xx-ambar); }
-        .tag-xx-lager { background-color: var(--color-xx-lager); }
-        .tag-bohemia-oscura { background-color: var(--color-bohemia-oscura); border: 1px solid #444; }
-        .tag-bohemia-clara { background-color: var(--color-bohemia-clara); }
-        .tag-heineken { background-color: var(--color-heineken); }
-        .tag-ultra { background-color: var(--color-ultra); }
-        
-        .card-price { font-size: 1.6rem; font-weight: bold; color: var(--warm-amber); font-family: 'Oswald', sans-serif;}
-        .card-desc { color: var(--text-off-white); font-size: 1.1rem; margin-top: 5px; font-weight: bold; font-family: 'Oswald', sans-serif; text-transform: uppercase;}
-        .card-subtext { color: var(--text-muted); font-size: 0.95rem; margin-top: 5px; font-style: italic;}
-
-        .menu-card.premium-coctel { background-color: #161616; }
-
-        .licor-list-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .licor-name { font-size: 1.2rem; font-weight: 400; color: var(--text-muted); }
-        .licor-price { font-size: 1.3rem; font-weight: bold; color: var(--warm-amber); font-family: 'Oswald', sans-serif;}
-
-        /* --- HORARIOS Y REDES SOCIALES --- */
-        .schedule-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            font-size: 1.3rem;
-            color: var(--text-muted);
-            text-align: left;
-            background-color: var(--surface-dark-grey);
-            border-radius: 10px;
-            padding: 50px;
-            border: 1px solid var(--metal-grey);
-        }
-        .fb-section { text-align: center; margin-top: 60px; }
-        
-        .fb-custom-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            background-color: transparent;
-            color: var(--text-off-white);
-            padding: 15px 40px;
-            border: 2px solid #1877F2;
-            border-radius: 5px;
-            font-size: 1.4rem;
-            font-family: 'Oswald', sans-serif;
-            text-decoration: none;
-            transition: all 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            box-shadow: inset 0 0 10px rgba(24, 119, 242, 0.1);
-        }
-        .fb-custom-btn:hover {
-            background-color: #1877F2;
-            color: white;
-            box-shadow: 0 0 20px rgba(24, 119, 242, 0.6);
-            transform: translateY(-3px);
-        }
-        .fb-custom-btn svg { fill: currentColor; }
-        
-        /* --- UBICACIÓN --- */
-        .location-grid {
-            display: grid;
-            grid-template-columns: 350px 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        .address-box {
-            background-color: var(--surface-dark-grey);
-            padding: 30px;
-            border-radius: 10px;
-            border: 1px solid var(--metal-grey);
-        }
-        .map-container {
-            width: 100%;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 3px solid var(--warm-amber);
-            box-shadow: 0 4px 15px rgba(230, 179, 119, 0.3);
-            filter: grayscale(100%) invert(100%);
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background-color: #050505;
-            text-align: center;
-            padding: 40px;
-            font-family: 'Oswald', sans-serif;
-            border-top: 2px solid var(--metal-grey);
-        }
-        footer a { color: var(--warm-amber); text-decoration: none; font-size: 1.2rem; transition: color 0.3s;}
-        footer a:hover { color: var(--text-off-white); text-shadow: 0 0 5px var(--warm-amber); }
-
-        /* --- SOLUCIÓN RESPONSIVA (MÓVILES) --- */
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero-title { font-size: 5rem; }
-            .hero-tagline { font-size: 1.5rem; }
-            .section-header { font-size: 2.5rem; margin-bottom: 40px; }
-            
-            .navbar { 
-                flex-direction: column; 
-                padding: 10px 5px;
-            }
-            .nav-logo { 
-                margin-right: 0; 
-                margin-bottom: 8px; 
-                height: 35px; 
-            }
-            .nav-links { 
-                gap: 15px; 
-                flex-wrap: wrap; 
-                justify-content: center; 
-            }
-            .nav-links a { 
-                font-size: 0.95rem; 
-            }
-            
-            .tabs { 
-                top: 85px; 
-                padding: 10px; 
-                flex-wrap: wrap;
-            }
-            .tablink { padding: 8px 15px; font-size: 1rem; }
-            
-            .schedule-grid, .location-grid { grid-template-columns: 1fr; padding: 20px; }
-            .menu-grid { grid-template-columns: 1fr; gap: 15px; }
-            .fb-custom-btn { padding: 12px 20px; font-size: 1.1rem; }
-        }
-
-        @media (max-width: 480px) {
-            .nav-links { gap: 10px; }
-            .nav-links a { font-size: 0.85rem; }
-            .tabs { top: 78px; }
+            .navbar { flex-direction: column; }
+            .menu-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar" id="mainNavbar">
-        <img src="logo.jpg" alt="El Sótano Logo" class="nav-logo">
-        <div class="nav-links">
-            <a href="#home">INICIO</a>
-            <a href="#seccion-menu">MENÚ</a>
-            <a href="#about">HORARIOS</a>
-            <a href="#myMap">UBICACIÓN</a>
+<nav class="navbar">
+    <div class="nav-links">
+        <a href="#home">INICIO</a>
+        <a href="#menu-ancla">MENÚ</a>
+        <a href="#about">HORARIOS</a>
+        <a href="#myMap">UBICACIÓN</a>
+    </div>
+</nav>
+
+<header class="hero" id="home">
+    <h1 style="font-size: 5rem; color: var(--neon-red);">EL SÓTANO</h1>
+    <p style="font-family: 'Oswald'; font-size: 2rem;">ROCK BAR</p>
+</header>
+
+<div class="container" id="menu-ancla">
+    <h2 class="section-header">NUESTRO MENÚ</h2>
+    <div class="tabs">
+        <button class="tablink active" onclick="openMenu(event, 'Cerveza')">Cerveza</button>
+        <button class="tablink" onclick="openMenu(event, 'Bebidas')">Bebidas</button>
+        <button class="tablink" onclick="openMenu(event, 'Alimentos')">Snacks</button>
+        <button class="tablink" onclick="openMenu(event, 'Promociones')">Promociones</button>
+    </div>
+
+    <div id="Cerveza" class="menu-content" style="display:block;">
+        <div class="menu-grid">
+            <div class="menu-card" style="grid-column: 1 / -1; border-color: var(--neon-red);">
+                <h3>PROMO! 2 TARROS de 1Litro <span class="card-price">$190.00</span></h3>
+            </div>
+            <div class="menu-card"><h3>Indio/Tecate Tarro 1L <span class="card-price">$119.00</span></h3></div>
+            <div class="menu-card"><h3>Indio/Tecate Ampolleta <span class="card-price">$39.00</span></h3></div>
         </div>
-    </nav>
-
-    <header class="hero" id="home">
-        <h1 class="hero-title">EL SÓTANO</h1>
-        <p class="hero-tagline">ROCK BAR</p>
-        <a href="#seccion-menu" class="hero-scroll-down">↓</a>
-    </header>
-
-    <section class="container" id="seccion-menu">
-        <div class="text-center">
-            <h2 class="section-header">NUESTRO MENÚ</h2>
+    </div>
+    
+    <div id="Bebidas" class="menu-content">
+        <div class="menu-grid">
+            <div class="menu-card"><h3>Mojitos (Litro) <span class="card-price">$150.00</span></h3></div>
+            <div class="menu-card"><h3>Gin (Litro) <span class="card-price">$150.00</span></h3></div>
         </div>
+    </div>
+    </div>
 
-        <div id="ancla-menu" style="position: relative; top: -100px; visibility: hidden;"></div>
+<section class="container" id="about">
+    <h2 class="section-header">NUESTROS HORARIOS</h2>
+    <p style="text-align: center;">Lunes-Jueves: 5pm-00am | Viernes: 5pm-2am | Sábado: 5pm-1am</p>
+</section>
 
-        <div class="tabs" id="menuTabs">
-            <button class="tablink active" onclick="openMenu(event, 'Cerveza')" id="defaultOpen">Cerveza</button>
-            <button class="tablink" onclick="openMenu(event, 'Bebidas')">Bebidas</button>
-            <button class="tablink" onclick="openMenu(event, 'Alimentos')">Snacks</button>
-            <button class="tablink" onclick="openMenu(event, 'Promociones')">Promociones</button>
-        </div>
+<section class="container" id="myMap">
+    <h2 class="section-header">UBICACIÓN</h2>
+    <p style="text-align: center;">Insurgentes Centro No.15, Col. San Rafael.</p>
+</section>
 
-        <div id="Cerveza" class="menu-content" style="display:block;">
-            <h3 class="menu-category-title">Nuestras Cervezas</h3>
-            <div class="menu-grid">
-                
-                <div class="menu-card promo-principal">
-                    <div class="card-header">
-                        <div class="card-brand-tags">
-                            <span class="brand-tag tag-indio">INDIO</span>
-                            <span class="brand-tag tag-tecate">TECATE</span>
-                        </div>
-                        <span class="card-price" style="font-size: 2rem;">$190.00</span>
-                    </div>
-                    <p class="card-desc">PROMO! 2 TARROS de 1Litro</p>
-                    <p class="card-subtext">¡Nuestra opción más vendida de la casa!</p>
-                </div>
+<script>
+    function openMenu(evt, menuName) {
+        // Ocultar todos
+        document.querySelectorAll('.menu-content').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.tablink').forEach(el => el.classList.remove('active'));
+        
+        // Mostrar seleccionado
+        document.getElementById(menuName).style.display = 'block';
+        evt.currentTarget.classList.add('active');
+        
+        // Scroll suave al inicio del menú
+        document.getElementById('menu-ancla').scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
 
-                <div class="menu-card">
-                    <div class="card-header">
-                        <div class="card-brand-tags">
-                            <span class="brand-tag tag-indio">INDIO</span>
-                            <span class="brand-tag tag-tecate">TECATE</span>
-                        </div>
-                        <span class="card-price">$119.00</span>
-                    </div>
-                    <p class="card-desc">TARRO 1Litro</p>
-                </div>
-                <div class="menu-card">
-                    <div class="card-header">
-                        <div class="card-brand-tags">
-                            <span class="brand-tag tag-indio">INDIO</span>
-                            <span class="brand-tag tag-tecate">TECATE</span>
-                        </div>
-                        <span class="card-price">$39.00</span>
-                    </div>
-                    <p class="card-desc">AMPOLLETA</p>
-                </div>
-                <div class="menu-card">
-                    <div class="card-header">
-                        <div class="card-brand-tags">
-                            <span class="brand-tag tag-indio">INDIO</span>
-                            <span class="brand-tag tag-tecate">TECATE</span>
-                        </div>
-                        <span class="card-price">$220.00</span>
-                    </div>
-                    <p class="card-desc">CUBETA (6 Piezas)</p>
-                </div>
-                <div class="menu-card">
-                    <div class="card-header">
-                        <div class="card-brand-tags">
-                            <span class="brand-tag tag-indio">INDIO</span>
-                            <span class="brand-tag tag-tecate">TECATE</span>
-                        </div>
-                        <span class="card-price">$125.00</span>
-                    </div>
-                    <p class="card-desc">CAGUAMÓN</p>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <div class="card-brand-tags">
-                            <span class="brand-tag tag-xx-ambar">XX Ambar</span>
-                            <span class="brand-tag tag-xx-lager">XX Lager</span>
-                        </div>
-                        <span class="card-price">$125.00</span>
-                    </div>
-                    <p class="card-desc">TARRO 1Litro</p>
-                </div>
-                <div class="menu-card">
-                    <div class="card-header">
-                        <div class="card-brand-tags">
-                            <span class="brand-tag tag-xx-ambar">XX Ambar</span>
-                            <span class="brand-tag tag-xx-lager">XX Lager</span>
-                        </div>
-                        <span class="card-price">$39.00</span>
-                    </div>
-                    <p class="card-desc">AMPOLLETA</p>
-                </div>
-                <div class="menu-card">
-                    <div class="card-header">
-                        <div class="card-brand-tags">
-                            <span class="brand-tag tag-xx-ambar">XX Ambar</span>
-                            <span class="brand-tag tag-xx-lager">XX Lager</span>
-                        </div>
-                        <span class="card-price">$220.00</span>
-                    </div>
-                    <p class="card-desc">CUBETA (6 Piezas)</p>
-                </div>
-                <div class="menu-card">
-                    <div class="card-header">
-                        <div class="card-brand-tags">
-                            <span class="brand-tag tag-xx-ambar">XX Ambar</span>
-                            <span class="brand-tag tag-xx-lager">XX Lager</span>
-                        </div>
-                        <span class="card-price">$130.00</span>
-                    </div>
-                    <p class="card-desc">CAGUAMÓN</p>
-                </div>
-
-                <div class="menu-card">
-                    <div class="card-header">
-                        <div class="card-brand-tags">
-                            <span class="brand-tag tag-bohemia-oscura">Bohemia Oscura</span>
-                            <span class="brand-tag tag-bohemia-clara">Bohemia Clara</span>
-                        </div>
-                        <span class="card-price">$45.00</span>
-                    </div>
-                    <p class="card-desc">AMPOLLETA</p>
-                </div>
-                <div class="menu-card">
-                    <div class="card-header">
-                        <div class="card-brand-tags">
-                            <span class="brand-tag tag-bohemia-oscura">Bohemia Oscura</span>
-                            <span class="brand-tag tag-bohemia-clara">Bohemia Clara</span>
+</body>
+</html>
