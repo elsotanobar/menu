@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>El Sótano - ROCK BAR</title>
     
+    <!-- Fuentes de Google Premium: Oswald para títulos y Roboto para cuerpo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
@@ -17,7 +18,7 @@
             --text-off-white: #f5f5f5;
             --text-muted: #aaaaaa;
             --neon-red: #ff3c3c; 
-            --warm-amber: #e6b377; /* Ámbar cálido para acentos y TODOS los precios */
+            --warm-amber: #e6b377; 
             --metal-grey: #444444;
             
             /* Colores Temáticos de Cervezas */
@@ -47,7 +48,6 @@
             margin: 0;
         }
 
-        /* Animación de parpadeo de neón */
         @keyframes neon-flicker {
             0%, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%, 100% {
                 text-shadow: 
@@ -75,6 +75,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            box-sizing: border-box;
         }
         .nav-logo { height: 40px; margin-right: 20px; }
         .nav-links { display: flex; gap: 30px; }
@@ -89,7 +90,7 @@
             text-shadow: 0 0 5px var(--neon-red);
         }
 
-        /* --- SECCIÓN HERO (PANTALLA COMPLETA INMERSIVA) --- */
+        /* --- SECCIÓN HERO --- */
         .hero {
             background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("redesign-bar.jpg");
             background-position: center;
@@ -132,6 +133,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 100px 20px;
+            box-sizing: border-box;
         }
         .text-center { 
             text-align: center; 
@@ -162,11 +164,12 @@
             gap: 15px;
             margin-bottom: 50px;
             position: sticky;
-            top: 70px;
+            top: 60px; /* Ajuste por defecto */
             z-index: 100;
-            background-color: rgba(8, 8, 8, 0.9);
+            background-color: rgba(8, 8, 8, 0.95);
             padding: 15px 0;
             border-bottom: 2px solid var(--metal-grey);
+            box-sizing: border-box;
         }
         .tablink {
             background-color: transparent;
@@ -217,7 +220,6 @@
             box-shadow: 0 8px 25px rgba(230, 179, 119, 0.15);
         }
         
-        /* Tarjeta Destacada de Promoción Principal */
         .menu-card.promo-principal {
             grid-column: 1 / -1; 
             background-color: #1a0d0d;
@@ -253,7 +255,6 @@
             letter-spacing: 1px;
         }
         
-        /* Clases de colores específicos para las marcas */
         .tag-indio { background-color: var(--color-indio); }
         .tag-tecate { background-color: var(--color-tecate); }
         .tag-xx-ambar { background-color: var(--color-xx-ambar); }
@@ -263,15 +264,12 @@
         .tag-heineken { background-color: var(--color-heineken); }
         .tag-ultra { background-color: var(--color-ultra); }
         
-        /* Homologación de precios a color Ámbar */
         .card-price { font-size: 1.6rem; font-weight: bold; color: var(--warm-amber); font-family: 'Oswald', sans-serif;}
         .card-desc { color: var(--text-off-white); font-size: 1.1rem; margin-top: 5px; font-weight: bold; font-family: 'Oswald', sans-serif; text-transform: uppercase;}
         .card-subtext { color: var(--text-muted); font-size: 0.95rem; margin-top: 5px; font-style: italic;}
 
-        /* Estilo general para cocteles interactivos */
         .menu-card.premium-coctel { background-color: #161616; }
 
-        /* Lista de licores clásica */
         .licor-list-item {
             display: flex;
             justify-content: space-between;
@@ -297,7 +295,6 @@
         }
         .fb-section { text-align: center; margin-top: 60px; }
         
-        /* --- NUEVO BOTÓN DE FACEBOOK --- */
         .fb-custom-btn {
             display: inline-flex;
             align-items: center;
@@ -322,9 +319,7 @@
             box-shadow: 0 0 20px rgba(24, 119, 242, 0.6);
             transform: translateY(-3px);
         }
-        .fb-custom-btn svg {
-            fill: currentColor;
-        }
+        .fb-custom-btn svg { fill: currentColor; }
         
         /* --- UBICACIÓN --- */
         .location-grid {
@@ -359,22 +354,55 @@
         footer a { color: var(--warm-amber); text-decoration: none; font-size: 1.2rem; transition: color 0.3s;}
         footer a:hover { color: var(--text-off-white); text-shadow: 0 0 5px var(--warm-amber); }
 
-        /* --- RESPONSIVO --- */
+        /* --- SOLUCIÓN RESPONSIVA (MÓVILES) --- */
         @media (max-width: 768px) {
             .hero-title { font-size: 5rem; }
-            .hero-tagline { font-size: 1.8rem; }
-            .section-header { font-size: 2.8rem; }
-            .tabs { flex-wrap: wrap; top: 60px; padding: 10px; }
-            .tablink { padding: 10px 20px; font-size: 1rem; }
-            .schedule-grid, .location-grid { grid-template-columns: 1fr; padding: 30px; }
-            .menu-grid { grid-template-columns: 1fr; }
-            .fb-custom-btn { padding: 15px 20px; font-size: 1.1rem; }
+            .hero-tagline { font-size: 1.5rem; }
+            .section-header { font-size: 2.5rem; margin-bottom: 40px; }
+            
+            /* Ajuste de Navbar para que el logo y botones no se encimen */
+            .navbar { 
+                flex-direction: column; 
+                padding: 10px 5px;
+            }
+            .nav-logo { 
+                margin-right: 0; 
+                margin-bottom: 8px; 
+                height: 35px; 
+            }
+            .nav-links { 
+                gap: 15px; 
+                flex-wrap: wrap; 
+                justify-content: center; 
+            }
+            .nav-links a { 
+                font-size: 0.95rem; 
+            }
+            
+            /* Ajuste del top sticky de las pestañas debido al navbar más alto */
+            .tabs { 
+                top: 85px; 
+                padding: 10px; 
+                flex-wrap: wrap;
+            }
+            .tablink { padding: 8px 15px; font-size: 1rem; }
+            
+            .schedule-grid, .location-grid { grid-template-columns: 1fr; padding: 20px; }
+            .menu-grid { grid-template-columns: 1fr; gap: 15px; }
+            .fb-custom-btn { padding: 12px 20px; font-size: 1.1rem; }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links { gap: 10px; }
+            .nav-links a { font-size: 0.85rem; }
+            .tabs { top: 78px; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
+    <!-- Navegación Fija -->
+    <nav class="navbar" id="mainNavbar">
         <img src="logo.jpg" alt="El Sótano Logo" class="nav-logo">
         <div class="nav-links">
             <a href="#home">INICIO</a>
@@ -384,24 +412,28 @@
         </div>
     </nav>
 
+    <!-- Sección Hero -->
     <header class="hero" id="home">
         <h1 class="hero-title">EL SÓTANO</h1>
         <p class="hero-tagline">ROCK BAR</p>
         <a href="#seccion-menu" class="hero-scroll-down">↓</a>
     </header>
 
+    <!-- Sección Menú -->
     <section class="container" id="seccion-menu">
         <div class="text-center">
             <h2 class="section-header">NUESTRO MENÚ</h2>
         </div>
 
-        <div class="tabs">
+        <!-- Pestañas de Navegación -->
+        <div class="tabs" id="menuTabs">
             <button class="tablink active" onclick="openMenu(event, 'Cerveza')" id="defaultOpen">Cerveza</button>
             <button class="tablink" onclick="openMenu(event, 'Bebidas')">Bebidas</button>
             <button class="tablink" onclick="openMenu(event, 'Alimentos')">Snacks</button>
             <button class="tablink" onclick="openMenu(event, 'Promociones')">Promociones</button>
         </div>
 
+        <!-- CATEGORÍA: CERVEZA -->
         <div id="Cerveza" class="menu-content" style="display:block;">
             <h3 class="menu-category-title">Nuestras Cervezas</h3>
             <div class="menu-grid">
@@ -588,6 +620,7 @@
             </div>
         </div>
 
+        <!-- CATEGORÍA: BEBIDAS -->
         <div id="Bebidas" class="menu-content">
             
             <h3 class="menu-category-title">Litros</h3>
@@ -692,6 +725,7 @@
             </div>
         </div>
 
+        <!-- CATEGORÍA: ALIMENTOS -->
         <div id="Alimentos" class="menu-content">
             <h3 class="menu-category-title">Snacks Rockeros</h3>
             <div class="menu-grid">
@@ -703,6 +737,7 @@
             </div>
         </div>
 
+        <!-- CATEGORÍA: PROMOCIONES -->
         <div id="Promociones" class="menu-content">
             <h3 class="menu-category-title">Especiales Clandestinos</h3>
             <div class="menu-grid">
@@ -717,6 +752,7 @@
         </div>
     </section>
 
+    <!-- Sección Horarios y Facebook -->
     <section class="container" id="about" style="max-width: 100%; padding-top: 60px;">
         <div class="text-center container" style="padding-bottom: 20px;">
             <h2 class="section-header">NUESTROS HORARIOS</h2>
@@ -745,6 +781,7 @@
         </div>
     </section>
 
+    <!-- Sección Ubicación -->
     <section class="container" id="myMap">
         <div class="text-center">
             <h2 class="section-header">NUESTRA UBICACIÓN</h2>
@@ -760,20 +797,43 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p>ROCK BAR | Powered by <a href="https://www.facebook.com/ElSotano.BarSnack/" target="_blank">El Sótano Bar</a> | © 2026</p>
     </footer>
 
+    <!-- Script Funcionalidad Pestañas -->
     <script>
         function openMenu(evt, menuName) {
             var i, x, tablinks;
+            
+            // Ocultar contenidos y limpiar clases
             x = document.getElementsByClassName("menu-content");
             for (i = 0; i < x.length; i++) { x[i].style.display = "none"; }
             tablinks = document.getElementsByClassName("tablink");
             for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
+            
+            // Mostrar contenido activo
             document.getElementById(menuName).style.display = "block";
             evt.currentTarget.className += " active";
+
+            // Solución de UX: Scrollear hacia arriba si fue un clic del usuario (isTrusted)
+            if (evt.isTrusted) {
+                var tabsContainer = document.getElementById('menuTabs');
+                var navbarHeight = document.getElementById('mainNavbar').offsetHeight;
+                
+                // Calcula la posición Y exacta del contenedor de pestañas
+                var topPos = tabsContainer.getBoundingClientRect().top + window.scrollY;
+                
+                // Hace un scroll suave descontando el alto de la barra de navegación para que no lo cubra
+                window.scrollTo({
+                    top: topPos - navbarHeight,
+                    behavior: 'smooth'
+                });
+            }
         }
+        
+        // Simular clic inicial (isTrusted será falso, por lo que no scrolleará de golpe)
         document.getElementById("defaultOpen").click();
     </script>
 </body>
